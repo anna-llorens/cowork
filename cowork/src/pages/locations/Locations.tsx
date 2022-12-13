@@ -18,7 +18,7 @@ export const Locations = () => {
       <div className="main">
         <h4>Available spaces:</h4>
         <div className="spaces">
-          {data?.map((space: any, index: any) => (
+          {data.coworks?.map((space: any, index: any) => (
             <CoworkCard key={index} cowork={space} />
           ))}
         </div>

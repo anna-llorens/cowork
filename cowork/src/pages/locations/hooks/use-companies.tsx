@@ -17,5 +17,6 @@ type Cowork = {
 
 export const useCompanies = () => {
   const { loading, error, data } = useQuery(GET_LOCATIONS);
+  debugger;
   return { loading, error, data };
 };
