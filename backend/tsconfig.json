@@ -2,10 +2,10 @@
   "compilerOptions": {
     "rootDirs": ["src"],
     "outDir": "dist",
-    "lib": ["es2020"],
-    "target": "es2020",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "lib": ["es2022"],
+    "target": "es2017",
+    "module": "es2022",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "types": ["node"]
   }
