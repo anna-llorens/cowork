@@ -73,7 +73,7 @@ export const Home = () => {
     });
   };
 
-  const routeChange = (path:any) => {
+  const routeChange = (path: any) => {
     navigate(path);
   };
   return (
@@ -87,11 +87,22 @@ export const Home = () => {
         <div className="square" onClick={handleOpen}>
           Register new site
         </div>
-        <div className="square" onClick={e => routeChange('locations')}>
+        <div className="square" onClick={(e) => routeChange("locations")}>
           Look for a coworking space
         </div>
 
-        <div className="square"  onClick={e => routeChange('inview')}>Testing</div>
+        <div className="square" onClick={(e) => routeChange("inview")}>
+          Testing
+        </div>
+        <div
+          className="square"
+          onClick={(e) => routeChange("order-components")}
+        >
+          Order components
+        </div>
+        <div className="square" onClick={(e) => routeChange("investment")}>
+          Investment
+        </div>
         <div>
           <Modal
             open={open}

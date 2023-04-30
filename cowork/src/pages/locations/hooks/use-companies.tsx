@@ -10,6 +10,7 @@ const GET_LOCATIONS = gql`
     }
   }
 `;
+
 type Cowork = {
   name: string;
   city: string;
