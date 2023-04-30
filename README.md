@@ -1,11 +1,10 @@
 # 💼 cowork
 
-This is a demo project on React. The idea is to build a website to search or register a coworking spaces.
+Cowork is a demo project built using React, with the aim of creating a website where users can search for and register coworking spaces.
 
 ### 🤝 Use case
 
-Imagine you have a remote job and decide to live in a new city and you would like to find a cowrking space. When doing a search on the internet there is not a central site to search and compare them. You have to check page by page which is the most convinient for you.
-The idea is collect all the data from different coworking spaces and show it to the users.
+Imagine you're a remote worker who has just moved to a new city and you're looking for a coworking space. You search the internet and find that there is no central site to search and compare coworking spaces. You have to check each site individually to find the one that suits your needs. The idea behind Cowork is to collect data from different coworking spaces and present it in a single place for users to easily find and compare spaces.
 
 ## 🚀 Quick start
 
@@ -16,8 +15,6 @@ To start the local server:
 > yarn && yarn start    # install dependecies and run the app
 ```
 
-To start the React app:
-
 ```sh
 > cd cowork
 > yarn && yarn start    # install dependecies and run the app
@@ -25,14 +22,22 @@ To start the React app:
 
 ## ✅ Features
 
-- Register a new site
-- List available sites
+- Register a new coworking space
+- List available coworking spaces
 
-## 🚧 In dev
+## 🚧 In development
 
-- Modal to register a new site
+We're currently working on the following feature:
 
-## 👀 Next
+- Modal to register a new coworking space
 
-- Persit database
-- Update list of available sites
+## 👀 Upcoming features
+
+We have the following features planned for future updates:
+
+- Persisting the database
+- Updating the list of available coworking spaces
+
+## License
+
+This project is licensed under the terms of the MIT license. See the LICENSE file for more information.
