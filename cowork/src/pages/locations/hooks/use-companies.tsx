@@ -11,11 +11,6 @@ const GET_LOCATIONS = gql`
   }
 `;
 
-type Cowork = {
-  name: string;
-  city: string;
-};
-
 export const useCompanies = () => {
   const { loading, error, data } = useQuery(GET_LOCATIONS);
   debugger;

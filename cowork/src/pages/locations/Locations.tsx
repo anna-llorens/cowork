@@ -1,8 +1,6 @@
-import { Cowork, CoworkCard } from "../../components/CoworkCard";
+import { CoworkCard } from "../../components/CoworkCard";
 import "../App.css";
-import { useQuery, gql } from "@apollo/client";
 import { useCompanies } from "./hooks/use-companies";
-import { useEffect, useState } from "react";
 
 export const Locations = () => {
   const { data, loading, error } = useCompanies();

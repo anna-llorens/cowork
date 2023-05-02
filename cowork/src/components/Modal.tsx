@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { log } from "console";
 import { useEffect } from "react";
 import { TextField } from "@mui/material";
 import { gql, useMutation } from "@apollo/client";
@@ -48,7 +47,7 @@ export const BasicModal = ({ isOpen, hello }) => {
     setOpen(true);
     hello();
   }, [isOpen, hello]);
-  const [addTodo, { data, loading, error }] = useMutation(ADD_TODO);
+  const [addTodo] = useMutation(ADD_TODO);
   const handleClose = () => setOpen(false);
   const registerCompany = () => {
     handleClose();
