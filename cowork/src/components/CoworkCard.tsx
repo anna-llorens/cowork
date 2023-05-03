@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "./components.css";
 import { Cowork } from "../types/types";
 
 const StyledCard = styled.div`

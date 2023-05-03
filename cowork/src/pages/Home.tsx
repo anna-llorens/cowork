@@ -1,4 +1,3 @@
-import "./App.css";
 import * as React from "react";
 
 import Logo from "./logo.png";
@@ -8,7 +7,7 @@ import { Routes } from "../types/types";
 import { Header } from "./home/header";
 import { Square } from "../components/square";
 import styled from "styled-components";
-import { BasicModal } from "../components/modal/Modal";
+import { BasicModal } from "../components/modal/modal";
 
 const SquaresContainer = styled.div`
   margin: 60px 60px;

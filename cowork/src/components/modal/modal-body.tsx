@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 import { useState } from "react";
 
 import styled from "styled-components";
-import { Separator } from "./Modal";
+import { Separator } from "./modal";
 
 const StyledBox = styled.div`
   display: flex;

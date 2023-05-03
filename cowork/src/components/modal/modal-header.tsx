@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { Separator } from "./Modal";
+import { Separator } from "./modal";
 
 export const ModalHeader = () => {
   return (

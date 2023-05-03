@@ -1,5 +1,4 @@
 import { CoworkCard } from "../../components/CoworkCard";
-import "../App.css";
 import { useCompanies } from "./hooks/use-companies";
 
 export const Locations = () => {
