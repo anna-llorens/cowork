@@ -11,9 +11,15 @@ const StyledHeader = styled.header`
   font-size: calc(10px + 2vmin);
   color: white;
 `;
+const HeaderContainer = styled.header`
+  text-align: center;
+  height: 110px;
+`;
 
 export const Header = () => (
-  <StyledHeader>
-    <h2>What would you like to do?</h2>
-  </StyledHeader>
+  <HeaderContainer>
+    <StyledHeader>
+      <h2>What would you like to do?</h2>
+    </StyledHeader>
+  </HeaderContainer>
 );

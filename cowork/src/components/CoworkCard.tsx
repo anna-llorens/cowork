@@ -1,22 +1,22 @@
+import styled from "styled-components";
 import "./components.css";
+import { Cowork } from "../types/types";
 
-type Address = {
-  city?: String;
-  postalCode?: String;
-  street?: String;
-};
-export type Cowork = {
-  name: String;
-  address: Address;
-  web?: String;
-};
-type CoworkCardProps = {
-  cowork?: Cowork;
-};
-export const CoworkCard = ({ cowork }: CoworkCardProps) => {
+const StyledCard = styled.div`
+  background-color: rgb(54, 54, 240);
+  color: white;
+  margin: 20px;
+  border-radius: 12px;
+  padding: 4px;
+  width: 600px;
+  min-height: 60px;
+  text-align: center;
+`;
+
+export const CoworkCard = ({ cowork }: { cowork?: Cowork }) => {
   return (
-    <div className="card">
+    <StyledCard>
       <span>{cowork?.name}</span> - <span>{cowork?.address?.city}</span>
-    </div>
+    </StyledCard>
   );
 };

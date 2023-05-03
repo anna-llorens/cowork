@@ -5,35 +5,43 @@ import Logo from "./logo.png";
 
 import { useNavigate } from "react-router-dom";
 import { Routes } from "../types/types";
-import { BasicModal } from "../components/Modal";
+import { Header } from "./home/header";
+import { Square } from "../components/square";
+import styled from "styled-components";
+import { BasicModal } from "../components/modal/Modal";
+
+const SquaresContainer = styled.div`
+  margin: 60px 60px;
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+`;
+const Footer = styled.footer`
+  height: 300px;
+`;
 
 export const Home = () => {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
-  const hello = () => setOpen(false);
+  const handleClose = () => setOpen(false);
 
   const routeChange = (path: Routes) => {
     navigate(path);
   };
   return (
     <>
-      <div className="App">
-        <header className="App-header">
-          <h2>What would you like to do?</h2>
-        </header>
-      </div>
-      <div className="box">
-        <div className="square" onClick={(e) => setOpen(true)}>
-          Register new site
-        </div>
-        <div className="square" onClick={(e) => routeChange(Routes.Locations)}>
-          Look for a coworking space
-        </div>
-      </div>
-      <BasicModal isOpen={open} hello={hello} />
-      <div className="back">
+      <Header />
+      <SquaresContainer>
+        <Square label="Register new site" onclick={() => setOpen(true)} />
+        <Square
+          label="Look for a coworking space"
+          onclick={() => routeChange(Routes.Locations)}
+        />
+      </SquaresContainer>
+      <BasicModal isOpen={open} handleClose={handleClose} />
+      <Footer>
         <img alt="logo" src={Logo} />
-      </div>
+      </Footer>
     </>
   );
 };
