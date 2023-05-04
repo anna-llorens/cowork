@@ -7,8 +7,9 @@ import styled from "styled-components";
 import { ModalHeader } from "./modal-header";
 import { Button } from "@mui/material";
 import { FormInput } from "../form/form-input";
+import { Cowork } from "../../types/types";
 
-const ADD_TODO = gql`
+const ADD_COWORK = gql`
   mutation addCowork($cowork: CoworkInput) {
     addCowork(cowork: $cowork) {
       companyName
@@ -34,7 +35,7 @@ export const Separator = styled.div`
   justify-content: space-around;
 `;
 
-const formInitialState: any = {
+const coworkInitialState: Cowork = {
   companyName: "",
   web: "",
   address: {
@@ -45,15 +46,15 @@ const formInitialState: any = {
   },
   contact: {
     name: "",
-    surname: "",
     email: "",
     number: "",
+    surname: "",
   },
 };
 
 export const BasicModal = ({ isOpen, handleClose }) => {
   const [open, setOpen] = React.useState(isOpen);
-  const [addTodo] = useMutation(ADD_TODO);
+  const [addCowork] = useMutation(ADD_COWORK);
 
   const onClose = () => {
     setOpen(false);
@@ -64,11 +65,11 @@ export const BasicModal = ({ isOpen, handleClose }) => {
     setOpen(isOpen);
   }, [isOpen]);
 
-  const [form, setForm] = useState(formInitialState);
+  const [form, setForm] = useState(coworkInitialState);
 
   const registerCompany = () => {
     handleClose();
-    return addTodo({
+    return addCowork({
       variables: {
         cowork: form,
       },

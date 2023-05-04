@@ -15,7 +15,7 @@ const StyledCard = styled.div`
 export const CoworkCard = ({ cowork }: { cowork?: Cowork }) => {
   return (
     <StyledCard>
-      <span>{cowork?.companyNams}</span> - <span>{cowork?.address?.city}</span>
+      <span>{cowork?.companyName}</span> - <span>{cowork?.address?.city}</span>
     </StyledCard>
   );
 };
