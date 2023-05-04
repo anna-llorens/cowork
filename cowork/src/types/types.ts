@@ -12,13 +12,13 @@ type Address = {
 
 type ContactPoint = {
   name: string;
-  surname: Address;
+  surname: string;
   email?: string;
-  phone?: string;
+  number?: string;
 };
 
 export type Cowork = {
-  companyNams: string;
+  companyName: string;
   web?: string;
   address: Address;
   contact: ContactPoint;

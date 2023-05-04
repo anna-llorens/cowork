@@ -37,6 +37,7 @@ We have the following features planned for future updates:
 
 - Persisting the database
 - Updating the list of available coworking spaces
+- Add a notification service
 
 ## License
 

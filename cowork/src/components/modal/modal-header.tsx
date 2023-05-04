@@ -1,11 +1,11 @@
 import { Typography } from "@mui/material";
 import { Separator } from "./modal";
 
-export const ModalHeader = () => {
+export const ModalHeader = ({ title }) => {
   return (
     <Separator>
       <Typography id="modal-modal-title" variant="h6" component="h2">
-        Register your coworking space.
+        {title}
       </Typography>
     </Separator>
   );

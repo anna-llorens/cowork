@@ -1,13 +1,13 @@
 import * as React from "react";
 
-import Logo from "./logo.png";
+import Logo from "../../static/png/logo.png";
 
 import { useNavigate } from "react-router-dom";
-import { Routes } from "../types/types";
-import { Header } from "./home/header";
-import { Square } from "../components/square";
+import { Routes } from "../../types/types";
+import { Header } from "./header";
+import { Square } from "../../components/square";
 import styled from "styled-components";
-import { BasicModal } from "../components/modal/modal";
+import { BasicModal } from "../../components/modal/modal";
 
 const SquaresContainer = styled.div`
   margin: 60px 60px;
