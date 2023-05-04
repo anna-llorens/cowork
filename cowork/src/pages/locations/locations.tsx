@@ -1,4 +1,4 @@
-import { CoworkCard } from "../../components/CoworkCard";
+import { CoworkCard } from "../../components/cowork-card";
 import { useCompanies } from "../../graphql/hooks/use-companies";
 
 export const Locations = () => {
