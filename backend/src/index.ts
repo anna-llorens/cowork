@@ -3,7 +3,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 
 const coworks = [
   {
-    name: "Amazon",
+    companyName: "Amazon",
     web: "www.google.com",
     address: {
       city: "Barcelona",
@@ -19,282 +19,10 @@ const coworks = [
     },
   },
   {
-    name: "Google",
+    companyName: "Google",
     web: "www.google.com",
     address: {
       city: "Madrid",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Facebook",
-    web: "www.google.com",
-    address: {
-      city: "Boston",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Allianz",
-    web: "www.google.com",
-    address: {
-      city: "Tokio",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Spotify",
-    web: "www.google.com",
-    address: {
-      city: "New York",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Apple",
-    web: "www.google.com",
-    address: {
-      city: "Paris",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Tesla",
-    web: "www.google.com",
-    address: {
-      city: "Madrid",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Twitter",
-    web: "www.google.com",
-    address: {
-      city: "London",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
-  {
-    name: "Microsoft",
-    web: "www.google.com",
-    address: {
-      city: "Barcelona",
       postalCode: "08029",
       country: "Spain",
       street: "Burdeus 22",
@@ -322,13 +50,13 @@ const resolvers = {
 
 const typeDefs = `#graphql
   input CoworkInput {
-    name: String!
+    companyName: String!
     web: String
     address: InputAddress
     contact: InputPerson
   }
   type Cowork {
-    name: String!
+    companyName: String!
     web: String
     address: Address
     contact: Person
