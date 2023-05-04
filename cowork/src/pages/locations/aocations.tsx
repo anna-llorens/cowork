@@ -1,5 +1,5 @@
 import { CoworkCard } from "../../components/CoworkCard";
-import { useCompanies } from "./hooks/use-companies";
+import { useCompanies } from "../../graphql/hooks/use-companies";
 
 export const Locations = () => {
   const { data, loading, error } = useCompanies();

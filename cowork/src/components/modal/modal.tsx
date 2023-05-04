@@ -2,20 +2,13 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useEffect, useState } from "react";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import styled from "styled-components";
 import { ModalHeader } from "./modal-header";
 import { Button } from "@mui/material";
 import { FormInput } from "../form/form-input";
 import { Cowork } from "../../types/types";
-
-const ADD_COWORK = gql`
-  mutation addCowork($cowork: CoworkInput) {
-    addCowork(cowork: $cowork) {
-      companyName
-    }
-  }
-`;
+import { ADD_COWORK } from "../../graphql/mutations";
 
 const style = {
   position: "absolute" as "absolute",
