@@ -3,14 +3,23 @@ export enum Routes {
   Locations = "locations",
 }
 
-export type Address = {
+type Address = {
   city?: string;
   postalCode?: string;
   street?: string;
+  country: string;
+};
+
+type ContactPoint = {
+  name: string;
+  surname: Address;
+  email?: string;
+  phone?: string;
 };
 
 export type Cowork = {
-  name: string;
-  address: Address;
+  companyNams: string;
   web?: string;
+  address: Address;
+  contact: ContactPoint;
 };

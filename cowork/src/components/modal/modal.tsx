@@ -1,17 +1,17 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import styled from "styled-components";
 import { ModalHeader } from "./modal-header";
-import { ModalBody } from "./modal-body";
-import { ModalFooter } from "./modal-footer";
+import { Button } from "@mui/material";
+import { FormInput } from "../form/form-input";
 
 const ADD_TODO = gql`
   mutation addCowork($cowork: CoworkInput) {
     addCowork(cowork: $cowork) {
-      name
+      companyName
     }
   }
 `;
@@ -34,10 +34,25 @@ export const Separator = styled.div`
   justify-content: space-around;
 `;
 
+const formInitialState: any = {
+  companyName: "",
+  web: "",
+  address: {
+    city: "",
+    postalCode: "",
+    country: "",
+    street: "",
+  },
+  contact: {
+    name: "",
+    surname: "",
+    email: "",
+    number: "",
+  },
+};
+
 export const BasicModal = ({ isOpen, handleClose }) => {
   const [open, setOpen] = React.useState(isOpen);
-  const [companyName, setComponyName] = React.useState("");
-  const [city, setCity] = React.useState("");
   const [addTodo] = useMutation(ADD_TODO);
 
   const onClose = () => {
@@ -49,28 +64,28 @@ export const BasicModal = ({ isOpen, handleClose }) => {
     setOpen(isOpen);
   }, [isOpen]);
 
+  const [form, setForm] = useState(formInitialState);
+
   const registerCompany = () => {
     handleClose();
     return addTodo({
       variables: {
-        cowork: {
-          name: companyName,
-          web: "www.google.com",
-          address: {
-            city: city,
-            postalCode: "08029",
-            country: "Spain",
-            street: "Burdeus 22",
-          },
-          contact: {
-            name: "Anna",
-            surname: "Llorens",
-            email: "anna@test.com",
-            number: "0123456",
-          },
-        },
+        cowork: form,
       },
     });
+  };
+
+  const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    const updatedForm = { ...form };
+    if (form.address[name] !== undefined) {
+      updatedForm.address[name] = value;
+    } else if (form.contact[name] !== undefined) {
+      updatedForm.contact[name] = value;
+    } else {
+      updatedForm[name] = value;
+    }
+    setForm(updatedForm);
   };
 
   return (
@@ -78,11 +93,48 @@ export const BasicModal = ({ isOpen, handleClose }) => {
       <Modal open={open} onClose={onClose}>
         <Box sx={style}>
           <ModalHeader />
-          <ModalBody />
-          <ModalFooter
-            handleClose={handleClose}
-            registerCompany={registerCompany}
-          />
+          <div>
+            <FormInput
+              label="Company name"
+              name="companyName"
+              value={form.companyName}
+              onChange={handleFormChange}
+            />
+            <FormInput
+              label="Company webSite"
+              name="web"
+              value={form.web}
+              onChange={handleFormChange}
+            />
+
+            <FormInput
+              label="City, country"
+              name="city"
+              value={form.address.city}
+              onChange={handleFormChange}
+            />
+
+            <FormInput
+              label="ContactName"
+              name="name"
+              value={form.contact.name}
+              onChange={handleFormChange}
+            />
+            <FormInput
+              label="Email"
+              name="email"
+              value={form.contact.email}
+              onChange={handleFormChange}
+            />
+          </div>
+          <Separator>
+            <Button variant="outlined" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="contained" onClick={registerCompany}>
+              Send for approval
+            </Button>
+          </Separator>
         </Box>
       </Modal>
     </div>
