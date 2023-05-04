@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import styled from "styled-components";
 import { ModalHeader } from "./modal-header";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { FormInput } from "../form/form-input";
 import { Cowork } from "../../types/types";
 import { ADD_COWORK } from "../../graphql/mutations";
@@ -26,6 +26,12 @@ export const Separator = styled.div`
   margin: 20px;
   display: flex;
   justify-content: space-around;
+`;
+
+const StyledBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
 `;
 
 const coworkInitialState: Cowork = {
@@ -52,6 +58,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
   const onClose = () => {
     setOpen(false);
     handleClose();
+    setForm(coworkInitialState);
   };
 
   useEffect(() => {
@@ -86,40 +93,90 @@ export const BasicModal = ({ isOpen, handleClose }) => {
     <div>
       <Modal open={open} onClose={onClose}>
         <Box sx={style}>
-          <ModalHeader />
+          <ModalHeader title="Register your coworking space" />
           <div>
-            <FormInput
-              label="Company name"
-              name="companyName"
-              value={form.companyName}
-              onChange={handleFormChange}
-            />
-            <FormInput
-              label="Company webSite"
-              name="web"
-              value={form.web}
-              onChange={handleFormChange}
-            />
-
-            <FormInput
-              label="City, country"
-              name="city"
-              value={form.address.city}
-              onChange={handleFormChange}
-            />
-
-            <FormInput
-              label="ContactName"
-              name="name"
-              value={form.contact.name}
-              onChange={handleFormChange}
-            />
-            <FormInput
-              label="Email"
-              name="email"
-              value={form.contact.email}
-              onChange={handleFormChange}
-            />
+            <StyledBox>
+              <TextField
+                label="Company name"
+                size="small"
+                name="companyName"
+                value={form.companyName}
+                onChange={handleFormChange}
+              />
+              <TextField
+                label="Site web"
+                size="small"
+                name="web"
+                value={form.web}
+                onChange={handleFormChange}
+              />
+            </StyledBox>
+            <Separator>Address: </Separator>
+            <StyledBox>
+              <TextField
+                label="City"
+                size="small"
+                name="city"
+                value={form.address.city}
+                onChange={handleFormChange}
+              />
+              <TextField
+                label="Country"
+                size="small"
+                name="country"
+                value={form.address.country}
+                onChange={handleFormChange}
+              />
+            </StyledBox>
+            <StyledBox>
+              <TextField
+                label="Street"
+                size="small"
+                name="street"
+                value={form.address.street}
+                onChange={handleFormChange}
+              />
+              <TextField
+                label="Postal code"
+                size="small"
+                name="postalCode"
+                value={form.address.postalCode}
+                onChange={handleFormChange}
+              />
+            </StyledBox>
+            <Separator>Contact point:</Separator>
+            <StyledBox>
+              <TextField
+                label="Name"
+                size="small"
+                name="name"
+                value={form.contact.name}
+                onChange={handleFormChange}
+              />
+              <TextField
+                label="Surname"
+                size="small"
+                name="surname"
+                value={form.contact.surname}
+                onChange={handleFormChange}
+              />
+            </StyledBox>
+            <StyledBox>
+              <TextField
+                label="Contact number"
+                size="small"
+                name="number"
+                value={form.contact.number}
+                onChange={handleFormChange}
+              />
+              <TextField
+                label="Email"
+                size="small"
+                name="email"
+                value={form.contact.email}
+                onChange={handleFormChange}
+              />
+            </StyledBox>
           </div>
           <Separator>
             <Button variant="outlined" onClick={handleClose}>
