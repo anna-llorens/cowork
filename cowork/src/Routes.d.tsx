@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { Locations } from "./pages/locations/aocations";
+import { Locations } from "./pages/locations/locations";
 import { Routes } from "./types/types";
 import { Home } from "./pages/home/home";
 

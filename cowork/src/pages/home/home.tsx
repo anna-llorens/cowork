@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Logo from "./logo.png";
+import Logo from "../../static/png/logo.png";
 
 import { useNavigate } from "react-router-dom";
 import { Routes } from "../../types/types";
