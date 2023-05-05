@@ -31,6 +31,7 @@ const Login = () => {
       navigate("/");
     },
   });
+
   const singUp = () => {
     return signup({
       variables: {
@@ -45,17 +46,7 @@ const Login = () => {
     });
   };
 
-  const [signup] = useMutation(SING_UP, {
-    variables: {
-      name: formState.name,
-      email: formState.email,
-      password: formState.password,
-    },
-    onCompleted: ({ signup }) => {
-      localStorage.setItem(AUTH_TOKEN, signup.token);
-      navigate("/");
-    },
-  });
+  const [signup] = useMutation(SING_UP);
 
   return (
     <div>
