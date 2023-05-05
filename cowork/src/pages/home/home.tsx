@@ -8,6 +8,7 @@ import { Header } from "./header";
 import { Square } from "../../components/square";
 import styled from "styled-components";
 import { BasicModal } from "../../components/modal/modal";
+import { AUTH_TOKEN } from "../../constants";
 
 const SquaresContainer = styled.div`
   margin: 60px 60px;
@@ -23,24 +24,36 @@ export const Home = () => {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
+  const authToken = localStorage.getItem(AUTH_TOKEN);
 
   const routeChange = (path: Routes) => {
     navigate(path);
   };
+  // let anna = true;
+
   return (
     <>
-      <Header />
-      <SquaresContainer>
-        <Square label="Register new site" onclick={() => setOpen(true)} />
-        <Square
-          label="Look for a coworking space"
-          onclick={() => routeChange(Routes.Locations)}
-        />
-      </SquaresContainer>
-      <BasicModal isOpen={open} handleClose={handleClose} />
-      <Footer>
-        <img alt="logo" src={Logo} />
-      </Footer>
+      {!authToken ? (
+        <>
+          <Header />
+          <SquaresContainer>
+            <Square
+              label="Loggin/ Signup"
+              onclick={() => routeChange(Routes.login)}
+            />
+            <Square
+              label="Look for a coworking space"
+              onclick={() => routeChange(Routes.Locations)}
+            />
+          </SquaresContainer>
+          <BasicModal isOpen={open} handleClose={handleClose} />
+          <Footer>
+            <img alt="logo" src={Logo} />
+          </Footer>
+        </>
+      ) : (
+        <div>hola bebe</div>
+      )}
     </>
   );
 };

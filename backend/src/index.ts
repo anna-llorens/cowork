@@ -1,5 +1,8 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
+// var bcrypt = require("bcryptjs");
+// var jwt = require("jsonwebtoken");
+const APP_SECRET = "GraphQL-is-aw3some";
 
 const coworks = [
   {
@@ -18,23 +21,18 @@ const coworks = [
       number: "0123456",
     },
   },
-  {
-    companyName: "Google",
-    web: "www.google.com",
-    address: {
-      city: "Madrid",
-      postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
-    },
-    contact: {
-      name: "Anna",
-      surname: "Llorens",
-      email: "anna@test.com",
-      number: "0123456",
-    },
-  },
 ];
+
+let users = [];
+// TODO add token
+// TODO persist user info
+async function signup(person) {
+  users.push(person);
+  return {
+    token: "ss",
+    person,
+  };
+}
 
 const resolvers = {
   Query: {
@@ -44,6 +42,9 @@ const resolvers = {
     addCowork: (parent, args) => {
       coworks.push(args.cowork);
       return coworks;
+    },
+    signup: (parent, args) => {
+      return signup(args);
     },
   },
 };
@@ -56,6 +57,7 @@ const typeDefs = `#graphql
     contact: InputPerson
   }
   type Cowork {
+    id: ID!
     companyName: String!
     web: String
     address: Address
@@ -83,10 +85,16 @@ const typeDefs = `#graphql
   }
 
   type Person {
+    id: ID!
     name: String!
-    surname: String!
     email: String!
-    number: String!
+    number: String
+    password: String
+    coworks: [Cowork]
+  }
+  type AuthPayload {
+    person: Person
+    token: String
   }
 
   type Query {
@@ -95,6 +103,9 @@ const typeDefs = `#graphql
 
   type Mutation {
     addCowork(cowork: CoworkInput):[Cowork]
+    signup(email: String! password: String! name: String!
+  ): AuthPayload
+
   }
 `;
 
