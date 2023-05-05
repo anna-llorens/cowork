@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Logo from "../static/png/logo.png";
 
 import { useNavigate } from "react-router-dom";
-import { Header } from "./home/header";
 import { Square } from "../components/square";
 import { Routes } from "../types/types";
 import { BasicModal } from "../components/modal/modal";

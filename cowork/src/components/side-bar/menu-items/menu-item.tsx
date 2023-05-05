@@ -1,24 +1,10 @@
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import {
-  Menu,
-  MenuItem as MenuItemMUI,
-  useProSidebar,
-} from "react-pro-sidebar";
+import { Menu, MenuItem as MenuItemMUI } from "react-pro-sidebar";
 
-export const MenuItem = () => {
-  const { collapseSidebar } = useProSidebar();
-  return (
-    <Menu>
-      <MenuItemMUI
-        icon={<MenuOutlinedIcon />}
-        onClick={() => {
-          collapseSidebar();
-        }}
-        style={{ textAlign: "center" }}
-      >
-        {" "}
-        <h2>Admin</h2>
-      </MenuItemMUI>
-    </Menu>
-  );
-};
+export const MenuItem = ({ onItemClick, ItemIcon, title = "", ...props }) => (
+  <Menu>
+    <MenuItemMUI icon={<ItemIcon />} onClick={onItemClick}>
+      {title ? title : null}
+      {props?.children}
+    </MenuItemMUI>
+  </Menu>
+);
