@@ -2,6 +2,7 @@ export enum Routes {
   Register = "register",
   Locations = "locations",
   login = "login",
+  me = "me",
 }
 
 type Address = {
@@ -11,7 +12,8 @@ type Address = {
   country: string;
 };
 
-type ContactPoint = {
+export type Person = {
+  id: string;
   name: string;
   surname: string;
   email?: string;
@@ -19,8 +21,9 @@ type ContactPoint = {
 };
 
 export type Cowork = {
+  id: string;
   companyName: string;
   web?: string;
   address: Address;
-  contact: ContactPoint;
+  contact: Person;
 };

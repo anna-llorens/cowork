@@ -34,6 +34,7 @@ const StyledBox = styled.div`
 `;
 
 const coworkInitialState: Cowork = {
+  id: "",
   companyName: "",
   web: "",
   address: {
@@ -43,6 +44,7 @@ const coworkInitialState: Cowork = {
     street: "",
   },
   contact: {
+    id: "",
     name: "",
     email: "",
     number: "",

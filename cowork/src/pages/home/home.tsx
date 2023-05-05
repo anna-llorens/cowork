@@ -29,7 +29,7 @@ export const Home = () => {
   const routeChange = (path: Routes) => {
     navigate(path);
   };
-  let anna = true;
+  // let anna = true;
 
   return (
     <>
