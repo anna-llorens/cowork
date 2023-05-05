@@ -3,7 +3,6 @@ import { useCompanies } from "../../graphql/hooks/use-companies";
 
 export const Locations = () => {
   const { data, loading, error } = useCompanies();
-  console.log(data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
