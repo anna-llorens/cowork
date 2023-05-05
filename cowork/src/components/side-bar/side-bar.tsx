@@ -14,7 +14,6 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlineOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
 import { BasicModal } from "../modal/modal";
-import { LocationItem } from "./location-item";
 
 export const SideBar = () => {
   const { collapseSidebar } = useProSidebar();
