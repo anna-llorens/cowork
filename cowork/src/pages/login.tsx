@@ -1,18 +1,14 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AUTH_TOKEN } from "../constants";
-import { SING_UP } from "../graphql/mutations";
+import { LOGIN_MUTATION, SING_UP } from "../graphql/mutations";
+import styled from "styled-components";
+import GoogleIcon from "@mui/icons-material/Google";
+import { TextField } from "../components";
+import { PrimaryButton, SecondaryButton } from "../components/buttons";
 
-const LOGIN_MUTATION = gql`
-  mutation LoginMutation($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-    }
-  }
-`;
-
-const Login = () => {
+export const Login = () => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     login: true,
@@ -20,7 +16,6 @@ const Login = () => {
     password: "",
     name: "",
   });
-
   const [login] = useMutation(LOGIN_MUTATION, {
     variables: {
       email: formState.email,
@@ -45,15 +40,40 @@ const Login = () => {
       },
     });
   };
-
   const [signup] = useMutation(SING_UP);
 
+  const LoginView = styled.div`
+    height: 90vh;
+    margin: 32px;
+    width: 40%;
+    border-right: 1px black solid;
+  `;
+
+  const Container = styled.div`
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  `;
+
   return (
-    <div>
-      <h4 className="mv3">{formState.login ? "Login" : "Sign Up"}</h4>
-      <div className="flex flex-column">
+    <LoginView>
+      <h1>Cowork</h1>
+      <Container>
+        <h2>Login</h2>
+        <SecondaryButton label="Continue with test user" onClick={singUp} />
+        <SecondaryButton
+          Icon={GoogleIcon}
+          label="Continue with google"
+          onClick={() => alert("🚧 Work in Progress 🚧")}
+        />
+        <h5>or</h5>
+      </Container>
+      <Container>
         {!formState.login && (
-          <input
+          <TextField
             value={formState.name}
             onChange={(e) =>
               setFormState({
@@ -61,11 +81,10 @@ const Login = () => {
                 name: e.target.value,
               })
             }
-            type="text"
             placeholder="Your name"
           />
         )}
-        <input
+        <TextField
           value={formState.email}
           onChange={(e) =>
             setFormState({
@@ -73,10 +92,9 @@ const Login = () => {
               email: e.target.value,
             })
           }
-          type="text"
           placeholder="Your email address"
         />
-        <input
+        <TextField
           value={formState.password}
           onChange={(e) =>
             setFormState({
@@ -85,29 +103,24 @@ const Login = () => {
             })
           }
           type="password"
-          placeholder="Choose a safe password"
+          placeholder="Password"
         />
-      </div>
-      <div className="flex mt3">
-        <button className="pointer mr2 button" onClick={singUp}>
-          {formState.login ? "login" : "create account"}
-        </button>
-        <button
-          className="pointer button"
+
+        <SecondaryButton
+          onClick={() => alert("🚧 Work in Progress 🚧")}
+          label="Login"
+        />
+
+        <PrimaryButton
           onClick={(e) =>
             setFormState({
               ...formState,
               login: !formState.login,
             })
           }
-        >
-          {formState.login
-            ? "need to create an account?"
-            : "already have an account?"}
-        </button>
-      </div>
-    </div>
+          label="need to create an account?"
+        />
+      </Container>
+    </LoginView>
   );
 };
-
-export default Login;
