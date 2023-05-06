@@ -7,23 +7,25 @@ const locations = [
   { locationName: "Barcelona cowork" },
   { locationName: "Barcelona cowork Diagonal" },
 ];
-
+// TODO when user click on the item open Location view
 export const ManageLocations = () => {
-  return (
+  return locations.length ? (
     <Menu>
       <SubMenu
         icon={<HomeOutlinedIcon />}
         label="Manage locations"
         defaultOpen={false}
       >
-        {locations
-          ? locations.map((locationName, index) => (
-              <MenuItem key={index} icon={<PeopleOutlinedIcon />}>
-                {locationName.locationName}
-              </MenuItem>
-            ))
-          : null}
+        {locations.map((menuItem, index) => (
+          <MenuItem
+            key={index}
+            icon={<PeopleOutlinedIcon />}
+            onClick={() => console.log("TODO")}
+          >
+            {menuItem.locationName}
+          </MenuItem>
+        ))}
       </SubMenu>
     </Menu>
-  );
+  ) : null;
 };

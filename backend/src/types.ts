@@ -13,15 +13,16 @@ type Address = {
 };
 
 export type Person = {
-  id?: string;
+  id: string;
   name: string;
   surname: string;
   email?: string;
   number?: string;
+  password: string;
 };
 
 export type Cowork = {
-  id?: string;
+  id: string;
   companyName: string;
   web?: string;
   address: Address;

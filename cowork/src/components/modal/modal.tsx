@@ -98,6 +98,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
           <div>
             <StyledBox>
               <TextField
+                required
                 label="Company name"
                 size="small"
                 name="companyName"
@@ -105,6 +106,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
                 onChange={handleFormChange}
               />
               <TextField
+                required
                 label="Site web"
                 size="small"
                 name="web"
@@ -115,6 +117,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
             <Separator>Address: </Separator>
             <StyledBox>
               <TextField
+                required
                 label="City"
                 size="small"
                 name="city"
@@ -122,6 +125,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
                 onChange={handleFormChange}
               />
               <TextField
+                required
                 label="Country"
                 size="small"
                 name="country"
@@ -131,6 +135,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
             </StyledBox>
             <StyledBox>
               <TextField
+                required
                 label="Street"
                 size="small"
                 name="street"
@@ -138,6 +143,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
                 onChange={handleFormChange}
               />
               <TextField
+                required
                 label="Postal code"
                 size="small"
                 name="postalCode"
@@ -148,6 +154,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
             <Separator>Contact point:</Separator>
             <StyledBox>
               <TextField
+                required
                 label="Name"
                 size="small"
                 name="name"
@@ -155,6 +162,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
                 onChange={handleFormChange}
               />
               <TextField
+                required
                 label="Surname"
                 size="small"
                 name="surname"
@@ -164,6 +172,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
             </StyledBox>
             <StyledBox>
               <TextField
+                required
                 label="Contact number"
                 size="small"
                 name="number"
@@ -171,6 +180,7 @@ export const BasicModal = ({ isOpen, handleClose }) => {
                 onChange={handleFormChange}
               />
               <TextField
+                required
                 label="Email"
                 size="small"
                 name="email"
