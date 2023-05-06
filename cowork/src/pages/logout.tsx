@@ -31,7 +31,7 @@ export const Logout = () => {
       <SquaresContainer>
         <Square
           label="Loggin/ Signup"
-          onclick={() => routeChange(Routes.login)}
+          onclick={() => routeChange(Routes.Login)}
         />
         <Square
           label="Look for a coworking space"

@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-
-import { Locations } from "./pages/locations/locations";
+import { Home, Locations, Login } from "./pages";
 import { Routes } from "./types/types";
-import { Home } from "./pages/home/home";
-import Login from "./pages/login";
-import { SideBar } from "./components/side-bar/side-bar";
+import { SideBar } from "./components";
 
 export const router = createBrowserRouter([
   {
@@ -20,11 +17,11 @@ export const router = createBrowserRouter([
     element: <SideBar />,
   },
   {
-    path: Routes.login,
+    path: Routes.Login,
     element: <Login />,
   },
   {
-    path: Routes.me,
+    path: Routes.Me,
     element: <div>About me</div>,
   },
 ]);

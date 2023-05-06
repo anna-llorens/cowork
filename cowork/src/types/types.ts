@@ -1,8 +1,8 @@
 export enum Routes {
   Register = "register",
   Locations = "locations",
-  login = "login",
-  me = "me",
+  Login = "login",
+  Me = "me",
 }
 
 type Address = {
