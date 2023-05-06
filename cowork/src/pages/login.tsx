@@ -8,6 +8,21 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { TextField } from "../components";
 import { PrimaryButton, SecondaryButton } from "../components/buttons";
 
+const LoginView = styled.div`
+  height: 90vh;
+  margin: 32px;
+  width: 40%;
+  border-right: 1px black solid;
+`;
+
+const Container = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+`;
 export const Login = () => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
@@ -41,22 +56,6 @@ export const Login = () => {
     });
   };
   const [signup] = useMutation(SING_UP);
-
-  const LoginView = styled.div`
-    height: 90vh;
-    margin: 32px;
-    width: 40%;
-    border-right: 1px black solid;
-  `;
-
-  const Container = styled.div`
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-  `;
 
   return (
     <LoginView>
