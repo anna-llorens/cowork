@@ -5,12 +5,12 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlineOutlined";
 import { useContext } from "react";
 
 import { LocationsContext } from "../../../context/locations";
-import { RoutePath } from "../../../types/types";
+import { RoutePath } from "../../../utils/types";
 import { Link } from "react-router-dom";
 
 export const ManageLocations = () => {
   const { locations } = useContext(LocationsContext);
-  
+
   return locations?.length ? (
     <Menu>
       <SubMenu

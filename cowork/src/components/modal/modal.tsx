@@ -6,7 +6,7 @@ import { useMutation } from "@apollo/client";
 import styled from "styled-components";
 import { ModalHeader } from "./modal-header";
 import { Button, TextField } from "@mui/material";
-import { Cowork } from "../../types/types";
+import { Cowork } from "../../utils/types";
 import { ADD_COWORK } from "../../graphql/mutations";
 
 const style = {

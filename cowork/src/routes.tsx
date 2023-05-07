@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, Home, Locations, Login } from "./pages";
-import { Routes } from "./types/types";
+import { ErrorPage, Home, Locations, Login, ManageLocation } from "./pages";
+import { Routes } from "./utils/types";
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "locations/:locationId",
-        element: <div>Need to update content dinamically [wip]</div>,
+        element: <ManageLocation />,
       },
     ],
   },

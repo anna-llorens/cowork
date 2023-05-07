@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useCompanies } from "../../graphql/hooks/use-companies";
-import { Cowork } from "../../types/types";
+import { Cowork } from "../../utils/types";
 
 export const LocationsContext = createContext<{
   locations: Cowork[];

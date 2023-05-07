@@ -4,7 +4,7 @@ import Logo from "../static/png/logo.png";
 
 import { useNavigate } from "react-router-dom";
 import { Square } from "../components/square";
-import { Routes } from "../types/types";
+import { Routes } from "../utils/types";
 import { BasicModal } from "../components/modal/modal";
 import { useState } from "react";
 
