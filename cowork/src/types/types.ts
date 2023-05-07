@@ -2,7 +2,11 @@ export enum Routes {
   Register = "register",
   Locations = "locations",
   Login = "login",
-  Me = "me",
+}
+
+export enum RoutePath {
+  locations = "/locations/",
+
 }
 
 type Address = {
