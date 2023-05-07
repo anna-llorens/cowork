@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AUTH_TOKEN } from "../constants";
-import { LOGIN_MUTATION, SING_UP } from "../graphql/mutations";
+import { SING_UP } from "../graphql/mutations";
 import styled from "styled-components";
 import GoogleIcon from "@mui/icons-material/Google";
 import { TextField } from "../components";
@@ -31,16 +31,17 @@ export const Login = () => {
     password: "",
     name: "",
   });
-  const [login] = useMutation(LOGIN_MUTATION, {
-    variables: {
-      email: formState.email,
-      password: formState.password,
-    },
-    onCompleted: ({ login }) => {
-      localStorage.setItem(AUTH_TOKEN, login.token);
-      navigate("/");
-    },
-  });
+
+  // const [login] = useMutation(LOGIN_MUTATION, {
+  //   variables: {
+  //     email: formState.email,
+  //     password: formState.password,
+  //   },
+  //   onCompleted: ({ login }) => {
+  //     localStorage.setItem(AUTH_TOKEN, login.token);
+  //     navigate("/");
+  //   },
+  // });
 
   const singUp = () => {
     return signup({

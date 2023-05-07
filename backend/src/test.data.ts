@@ -14,7 +14,7 @@ export const users: Person[] = [
 export const coworks: Cowork[] = [
   {
     id: "cowork-id",
-    companyName: "My cowork location",
+    companyName: "Coworking together",
     web: "www.google.com",
     address: {
       city: "Barcelona",
@@ -25,8 +25,8 @@ export const coworks: Cowork[] = [
     contact: users[0],
   },
   {
-    id: "cowork-id",
-    companyName: "My cowork location",
+    id: "cowork-id-1",
+    companyName: "My space",
     web: "www.google.com",
     address: {
       city: "Barcelona",
