@@ -1,8 +1,5 @@
-import { useMutation } from "@apollo/client";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AUTH_TOKEN } from "../constants";
-import { SING_UP } from "../graphql/mutations";
+
 import styled from "styled-components";
 import GoogleIcon from "@mui/icons-material/Google";
 import { TextField } from "../components";
@@ -24,7 +21,6 @@ const Container = styled.div`
   gap: 16px;
 `;
 export const Login = () => {
-  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     login: true,
     email: "",
@@ -32,38 +28,20 @@ export const Login = () => {
     name: "",
   });
 
-  // const [login] = useMutation(LOGIN_MUTATION, {
-  //   variables: {
-  //     email: formState.email,
-  //     password: formState.password,
-  //   },
-  //   onCompleted: ({ login }) => {
-  //     localStorage.setItem(AUTH_TOKEN, login.token);
-  //     navigate("/");
-  //   },
-  // });
-
-  const singUp = () => {
-    return signup({
-      variables: {
-        name: formState.name,
-        email: formState.email,
-        password: formState.password,
-      },
-      onCompleted: ({ signup }) => {
-        localStorage.setItem(AUTH_TOKEN, signup.token);
-        navigate("/");
-      },
-    });
+  const testUserLogin = () => {
+    // TODO Add real login service
+    console.log("this is broken");
   };
-  const [signup] = useMutation(SING_UP);
 
   return (
     <LoginView>
       <h1>Cowork</h1>
       <Container>
         <h2>Login</h2>
-        <SecondaryButton label="Continue with test user" onClick={singUp} />
+        <SecondaryButton
+          label="Continue with test user"
+          onClick={testUserLogin}
+        />
         <SecondaryButton
           Icon={GoogleIcon}
           label="Continue with google"

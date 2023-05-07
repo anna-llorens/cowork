@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { ProSidebarProvider } from "react-pro-sidebar";
-const GRAPHQL_API = "http://localhost:4000";
+import { router } from "./routes";
+import { RouterProvider } from "react-router-dom";
 
+const GRAPHQL_API = "http://localhost:4000";
 const client = new ApolloClient({
   uri: GRAPHQL_API,
   cache: new InMemoryCache(),
@@ -17,7 +18,7 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <ProSidebarProvider>
-        <App />
+        <RouterProvider router={router} />
       </ProSidebarProvider>
     </ApolloProvider>
   </React.StrictMode>

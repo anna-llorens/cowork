@@ -1,11 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Locations, Login } from "./pages";
+import { ErrorPage, Home, Locations, Login } from "./pages";
 import { Routes } from "./types/types";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "locations/:locationId",
+        element: <div>Need to update content dinamically [wip]</div>,
+      },
+    ],
   },
   {
     path: Routes.Locations,
@@ -14,9 +21,5 @@ export const router = createBrowserRouter([
   {
     path: Routes.Login,
     element: <Login />,
-  },
-  {
-    path: Routes.Me,
-    element: <div>About me</div>,
   },
 ]);
