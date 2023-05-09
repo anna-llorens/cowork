@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Cowork } from "../types/types";
+import { Cowork } from "../utils/types";
 
 const StyledCard = styled.div`
   background-color: rgb(54, 54, 240);

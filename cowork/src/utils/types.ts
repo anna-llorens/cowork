@@ -6,10 +6,9 @@ export enum Routes {
 
 export enum RoutePath {
   locations = "/locations/",
-
 }
 
-type Address = {
+export type Address = {
   city?: string;
   postalCode?: string;
   street?: string;

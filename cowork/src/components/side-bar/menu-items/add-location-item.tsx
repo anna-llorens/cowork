@@ -1,4 +1,4 @@
-import { BasicModal } from "../../modal/modal";
+import { RegisterCoworkModal } from "../../modals/resgister-cowork-modal";
 import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { MenuItem } from "./menu-item";
@@ -13,7 +13,7 @@ export const AddLocation = () => {
         ItemIcon={AddIcon}
         title="Add Location"
       />
-      <BasicModal isOpen={open} handleClose={handleClose} />
+      <RegisterCoworkModal isOpen={open} handleClose={handleClose} />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { Cowork, Person } from "./types.js";
 
 export const users: Person[] = [
   {
-    name: "anna",
+    name: "Anna",
     surname: "Llorens",
     email: "anna@test.com",
     number: "0123456",
