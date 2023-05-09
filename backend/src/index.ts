@@ -23,9 +23,7 @@ async function addCowork(cowork) {
   return coworks;
 }
 async function coworksByUser(id) {
-  const userSpaces = coworks.filter(
-    (cowork) => cowork.contact.id === id
-  );
+  const userSpaces = coworks.filter((cowork) => cowork.contact.id === id);
   return userSpaces;
 }
 
@@ -84,6 +82,7 @@ const typeDefs = `#graphql
   type Person {
     id: ID!
     name: String!
+    surname: String
     email: String!
     number: String
     password: String

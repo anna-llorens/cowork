@@ -5,7 +5,7 @@ import Logo from "../static/png/logo.png";
 import { useNavigate } from "react-router-dom";
 import { Square } from "../components/square";
 import { Routes } from "../utils/types";
-import { BasicModal } from "../components/modal/modal";
+import { RegisterCoworkModal } from "../components/modals/resgister-cowork-modal";
 import { useState } from "react";
 
 const SquaresContainer = styled.div`
@@ -38,7 +38,7 @@ export const Logout = () => {
           onclick={() => routeChange(Routes.Locations)}
         />
       </SquaresContainer>
-      <BasicModal isOpen={open} handleClose={handleClose} />
+      <RegisterCoworkModal isOpen={open} handleClose={handleClose} />
       <Footer>
         <img alt="logo" src={Logo} />
       </Footer>

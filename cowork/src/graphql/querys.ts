@@ -7,6 +7,13 @@ export const GET_LOCATIONS = gql`
       companyName
       address {
         city
+        street
+        postalCode
+        country
+      }
+      contact {
+        name
+        surname
       }
     }
   }

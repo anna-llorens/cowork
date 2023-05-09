@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, Home, Locations, Login, ManageLocation } from "./pages";
+import { ErrorPage, Home, Login, LocationView } from "./pages";
 import { Routes } from "./utils/types";
 
 export const router = createBrowserRouter([
@@ -10,13 +10,9 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "locations/:locationId",
-        element: <ManageLocation />,
+        element: <LocationView />,
       },
     ],
-  },
-  {
-    path: Routes.Locations,
-    element: <Locations />,
   },
   {
     path: Routes.Login,

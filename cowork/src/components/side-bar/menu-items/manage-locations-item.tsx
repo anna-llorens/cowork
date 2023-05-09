@@ -9,7 +9,7 @@ import { RoutePath } from "../../../utils/types";
 import { Link } from "react-router-dom";
 
 export const ManageLocations = () => {
-  const { locations } = useContext(LocationsContext);
+  const { locations, setActiveTab } = useContext(LocationsContext);
 
   return locations?.length ? (
     <Menu>
@@ -20,6 +20,7 @@ export const ManageLocations = () => {
       >
         {locations.map((cowork) => (
           <MenuItem
+            onClick={() => setActiveTab(cowork.id)}
             key={cowork.id}
             icon={<PeopleOutlinedIcon />}
             component={<Link to={`${RoutePath.locations}${cowork.id}`} />}
