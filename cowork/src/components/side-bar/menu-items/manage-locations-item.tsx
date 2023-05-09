@@ -9,7 +9,8 @@ import { RoutePath } from "../../../utils/types";
 import { Link } from "react-router-dom";
 
 export const ManageLocations = () => {
-  const { locations, setActiveTab } = useContext(LocationsContext);
+  const { getLocations, setActiveTab } = useContext(LocationsContext);
+  const locations = getLocations();
 
   return locations?.length ? (
     <Menu>

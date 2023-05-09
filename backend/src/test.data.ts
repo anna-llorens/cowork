@@ -29,10 +29,10 @@ export const coworks: Cowork[] = [
     companyName: "My space",
     web: "www.google.com",
     address: {
-      city: "Barcelona",
-      postalCode: "08029",
+      city: "Madrid",
+      postalCode: "04004",
       country: "Spain",
-      street: "Burdeus 22",
+      street: "Rosario 23",
     },
     contact: users[0],
   },
