@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, Home, Login, LocationView } from "./pages";
+import { ErrorPage, Home, Login, LocationView, Loading } from "./pages";
 import { Routes } from "./utils/types";
+import { Coworks } from "./pages/coworks";
 
 export const router = createBrowserRouter([
   {
@@ -17,5 +18,13 @@ export const router = createBrowserRouter([
   {
     path: Routes.Login,
     element: <Login />,
+  },
+  {
+    path: Routes.Loading,
+    element: <Loading />,
+  },
+  {
+    path: Routes.Coworks,
+    element: <Coworks />,
   },
 ]);

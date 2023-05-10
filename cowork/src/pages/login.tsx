@@ -4,9 +4,10 @@ import styled from "styled-components";
 import GoogleIcon from "@mui/icons-material/Google";
 import { TextField } from "../components";
 import { PrimaryButton, SecondaryButton } from "../components/buttons";
-import { LOGIN_MUTATION } from "../graphql/mutations";
+import { LOGIN_MUTATION, SIGNUP_MUTATION } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import { AUTH_TOKEN } from "../utils";
 
 const LoginView = styled.div`
   height: 90vh;
@@ -51,7 +52,19 @@ export const Login = () => {
       password: formState.password,
     },
     onCompleted: ({ login }) => {
-      localStorage.setItem("token", login.token);
+      localStorage.setItem(AUTH_TOKEN, login.token);
+      navigate("/");
+    },
+  });
+
+  const [signup] = useMutation(SIGNUP_MUTATION, {
+    variables: {
+      name: formState.name,
+      email: formState.email,
+      password: formState.password,
+    },
+    onCompleted: ({ signup }) => {
+      localStorage.setItem(AUTH_TOKEN, signup.token);
       navigate("/");
     },
   });
@@ -107,7 +120,10 @@ export const Login = () => {
           placeholder="Password"
         />
 
-        <SecondaryButton onClick={login} label="Login" />
+        <SecondaryButton
+          onClick={formState.login ? login : signup}
+          label="Continue"
+        />
 
         <PrimaryButton
           onClick={(e) =>

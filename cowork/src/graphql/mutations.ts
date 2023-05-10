@@ -15,6 +15,14 @@ export const LOGIN_MUTATION = gql`
   }
 `;
 
+export const SIGNUP_MUTATION = gql`
+  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
+    signup(email: $email, password: $password, name: $name) {
+      token
+    }
+  }
+`;
+
 export const ADD_COWORK = gql`
   mutation addCowork($cowork: CoworkInput) {
     addCowork(cowork: $cowork) {
