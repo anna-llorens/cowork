@@ -2,8 +2,8 @@ import { Cowork, Person } from "./types.js";
 
 export const users: Person[] = [
   {
-    name: "Anna",
-    surname: "Llorens",
+    name: "Will",
+    surname: "Smith",
     email: "anna@test.com",
     number: "0123456",
     id: "user-id",
@@ -15,19 +15,19 @@ export const coworks: Cowork[] = [
   {
     id: "cowork-id",
     companyName: "Coworking together",
-    web: "www.google.com",
+    web: "www.cowork-togheter.com",
     address: {
-      city: "Barcelona",
+      city: "Mainland",
       postalCode: "08029",
-      country: "Spain",
-      street: "Burdeus 22",
+      country: "US",
+      street: "Burrier street",
     },
     contact: users[0],
   },
   {
     id: "cowork-id-1",
     companyName: "My space",
-    web: "www.google.com",
+    web: "www.myspace-cowork.com",
     address: {
       city: "Madrid",
       postalCode: "04004",

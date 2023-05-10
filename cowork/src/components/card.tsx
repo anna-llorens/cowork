@@ -9,6 +9,9 @@ import { spaceXL } from "../utils/tokens";
 const StyledCard = styled(CardMUI)`
   margin-right: ${spaceXL};
   margin-top: ${spaceXL};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Card = ({ title, cardContent, cardActions }) => {

@@ -16,7 +16,9 @@ async function signup(person) {
 }
 async function addCowork(cowork) {
   // TODO only auth users can add
-  if (cowork.user.id === users[0].id) {
+  if (cowork.contact.id === users[0].id) {
+    console.log(cowork, "aasss");
+    cowork.id = "id-id";
     coworks.push(cowork);
   }
 
@@ -67,6 +69,7 @@ const typeDefs = `#graphql
   }
 
   input InputPerson {
+    id: String
     name: String!
     surname: String!
     email: String!

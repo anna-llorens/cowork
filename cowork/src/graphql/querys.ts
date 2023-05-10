@@ -5,6 +5,7 @@ export const GET_LOCATIONS = gql`
     coworks {
       id
       companyName
+      web
       address {
         city
         street
