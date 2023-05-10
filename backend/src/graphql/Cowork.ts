@@ -65,7 +65,7 @@ export const CoworkMutation = extendType({
 export const CoworkQuery = extendType({
   type: "Query",
   definition(t) {
-    t.nonNull.list.nonNull.field("feed", {
+    t.nonNull.list.nonNull.field("coworks", {
       type: "Cowork",
       resolve(parent, args, context) {
         return context.prisma.cowork.findMany();

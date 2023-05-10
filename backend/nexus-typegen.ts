@@ -73,7 +73,7 @@ export interface NexusGenFieldTypes {
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
   }
   Query: { // field return type
-    feed: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
+    coworks: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
   }
   User: { // field return type
     coworks: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
@@ -100,7 +100,7 @@ export interface NexusGenFieldTypeNames {
     signup: 'AuthPayload'
   }
   Query: { // field return type name
-    feed: 'Cowork'
+    coworks: 'Cowork'
   }
   User: { // field return type name
     coworks: 'Cowork'
