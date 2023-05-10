@@ -1,12 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import styled from "styled-components";
 import { Button, TextField, Typography } from "@mui/material";
-import { Cowork } from "../../utils/types";
 import { ADD_COWORK } from "../../graphql/mutations";
+import { LocationsContext } from "../../context/locations";
 
 const style = {
   position: "absolute" as "absolute",
@@ -32,8 +32,7 @@ const StyledBox = styled.div`
   margin-top: 8px;
 `;
 
-const coworkInitialState: Cowork = {
-  id: "",
+const coworkInitialState = {
   companyName: "",
   web: "",
   address: {
@@ -43,7 +42,7 @@ const coworkInitialState: Cowork = {
     street: "",
   },
   contact: {
-    id: "",
+    id: "user-id",
     name: "",
     email: "",
     number: "",
@@ -52,8 +51,9 @@ const coworkInitialState: Cowork = {
 };
 
 export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
+  const { setCoworks } = useContext(LocationsContext);
   const [open, setOpen] = React.useState(isOpen);
-  const [addCowork] = useMutation(ADD_COWORK);
+  const [addCowork, { data }] = useMutation(ADD_COWORK);
 
   const onClose = () => {
     setOpen(false);
@@ -69,6 +69,7 @@ export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
 
   const registerCompany = () => {
     handleClose();
+    debugger;
     return addCowork({
       variables: {
         cowork: form,
@@ -77,6 +78,7 @@ export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
   };
 
   const handleFormChange = (event) => {
+    debugger;
     const { name, value } = event.target;
     const updatedForm = { ...form };
     if (form.address[name] !== undefined) {

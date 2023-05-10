@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import { useContext } from "react";
 import { LocationsContext } from "../../../context/locations";
 
@@ -7,12 +6,12 @@ export const AdressInfo = () => {
   const cowork = getCoworkData();
   return (
     <>
-      <Typography variant="h5">{cowork?.address?.city}</Typography>
-      <Typography>{cowork?.address?.street}</Typography>
-      <Typography>
+      <h4>{cowork?.address?.city}</h4>
+      <div>{cowork?.address?.street}</div>
+      <div>
         {cowork?.address?.postalCode ? `${cowork?.address.postalCode}, ` : ""}
         {cowork?.address?.country}
-      </Typography>
+      </div>
     </>
   );
 };

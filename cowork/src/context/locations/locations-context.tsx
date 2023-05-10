@@ -8,11 +8,13 @@ export const LocationsContext = createContext<{
   getCoworkData: (coworkId?: string) => Cowork | null;
   activeTab: string;
   setActiveTab: any;
+  setCoworks: any;
 }>({
   getLocations: null,
   getCoworkData: null,
   activeTab: "/",
   setActiveTab: null,
+  setCoworks: null,
 });
 
 export const LocationsContextProvider = ({ children }) => {
@@ -22,7 +24,9 @@ export const LocationsContextProvider = ({ children }) => {
   const [activeTab, setActiveTab] = useState(
     location.pathname.replace("/locations/", "")
   );
-  const coworks: Cowork[] = data?.coworks;
+  const [anna, setCoworks] = useState(data?.coworks);
+
+  const coworks = data?.coworks;
 
   const getCoworkData = (coworkId = activeTab) => {
     return coworks?.find((cowork) => cowork.id === coworkId);
@@ -37,7 +41,13 @@ export const LocationsContextProvider = ({ children }) => {
 
   return (
     <LocationsContext.Provider
-      value={{ getLocations, getCoworkData, activeTab, setActiveTab }}
+      value={{
+        getLocations,
+        getCoworkData,
+        activeTab,
+        setActiveTab,
+        setCoworks,
+      }}
     >
       {children}
     </LocationsContext.Provider>

@@ -4,6 +4,7 @@ import { AddressCard } from "./cards/address-card";
 import { ContactCard } from "./cards";
 import { LocationsContext } from "../../context/locations";
 import { useContext } from "react";
+import { BuildingCard } from "./cards/building-card";
 
 const Main = styled.main`
   margin: ${spaceXL} ${space3XL};
@@ -22,7 +23,7 @@ export const LocationView = () => {
   return (
     <Main>
       <h1>Manage your location</h1>
-      <h2>{cowork.companyName}</h2>
+      <h2>{cowork?.companyName}</h2>
       <section>
         <img
           src="https://res.cloudinary.com/terieyenike/image/upload/c_thumb,g_face,w_317/v1637140050/calm_teri_b3eziq.jpg"
@@ -33,11 +34,11 @@ export const LocationView = () => {
       <CardSection>
         <AddressCard />
         <ContactCard />
+        <BuildingCard />
         {/* TODO Add additional cards 
-        <Card title={"Building"} CardContent={AdressInfo} />
-        <Card title={"Amenities"} CardContent={AdressInfo} />
-        <Card title={"Common Spaces"} CardContent={AdressInfo} />
-        <Card title={"Type of space / product"} CardContent={AdressInfo} /> */}
+          <Card title={"Amenities"}/>
+          <Card title={"Common Spaces"} />
+          <Card title={"Type of space / product"}/> */}
       </CardSection>
     </Main>
   );
