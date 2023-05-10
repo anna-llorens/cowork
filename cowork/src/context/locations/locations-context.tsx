@@ -17,9 +17,19 @@ export const LocationsContext = createContext<{
   setCoworks: null,
 });
 
+const coworks: Cowork[] = [
+  {
+    companyName: "Anna is testing",
+    id: "my-id",
+    address: { country: "" },
+    contact: { id: "id", name: "aa", surname: "aa" },
+  },
+];
+const data = { coworks };
+
 export const LocationsContextProvider = ({ children }) => {
   // TODO update query to get only user Locations. This is only test data
-  const { data, loading, error } = useCompanies();
+  // const { data, loading, error } = useCompanies();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(
     location.pathname.replace("/locations/", "")
@@ -36,8 +46,8 @@ export const LocationsContextProvider = ({ children }) => {
     return coworks;
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error : {error.message}</p>;
 
   return (
     <LocationsContext.Provider

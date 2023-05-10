@@ -6,7 +6,7 @@ import { ProSidebarProvider } from "react-pro-sidebar";
 import { router } from "./routes";
 import { RouterProvider } from "react-router-dom";
 
-const GRAPHQL_API = "http://localhost:4000";
+const GRAPHQL_API = "http://localhost:3000";
 const client = new ApolloClient({
   uri: GRAPHQL_API,
   cache: new InMemoryCache(),
