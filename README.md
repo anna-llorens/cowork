@@ -20,25 +20,6 @@ To start the local server:
 > yarn && yarn start    # install dependecies and run the app
 ```
 
-## ✅ Features
-
-- Register a new coworking space
-- List available coworking spaces
-
-## 🚧 In development
-
-We're currently working on the following feature:
-
-- Modal to register a new coworking space
-
-## 👀 Upcoming features
-
-We have the following features planned for future updates:
-
-- Persisting the database
-- Updating the list of available coworking spaces
-- Add a notification service
-
 ## License
 
 This project is licensed under the terms of the MIT license. See the LICENSE file for more information.

@@ -4,9 +4,17 @@ export const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
+      user {
+        email
+        coworks {
+          url
+          description
+        }
+      }
     }
   }
 `;
+
 export const ADD_COWORK = gql`
   mutation addCowork($cowork: CoworkInput) {
     addCowork(cowork: $cowork) {

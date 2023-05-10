@@ -4,6 +4,9 @@ import styled from "styled-components";
 import GoogleIcon from "@mui/icons-material/Google";
 import { TextField } from "../components";
 import { PrimaryButton, SecondaryButton } from "../components/buttons";
+import { LOGIN_MUTATION } from "../graphql/mutations";
+import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 
 const LoginView = styled.div`
   height: 90vh;
@@ -21,6 +24,7 @@ const Container = styled.div`
   gap: 16px;
 `;
 export const Login = () => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     login: true,
     email: "",
@@ -28,10 +32,29 @@ export const Login = () => {
     name: "",
   });
 
-  const testUserLogin = () => {
-    // TODO Add real login service
-    console.log("this is broken");
+  const loginWithTestUser = () => {
+    return login({
+      variables: {
+        email: "alice@prisma.io",
+        password: "graphql",
+      },
+      onCompleted: ({ login }) => {
+        localStorage.setItem("token", login.token);
+        navigate("/");
+      },
+    });
   };
+
+  const [login] = useMutation(LOGIN_MUTATION, {
+    variables: {
+      email: formState.email,
+      password: formState.password,
+    },
+    onCompleted: ({ login }) => {
+      localStorage.setItem("token", login.token);
+      navigate("/");
+    },
+  });
 
   return (
     <LoginView>
@@ -40,7 +63,7 @@ export const Login = () => {
         <h2>Login</h2>
         <SecondaryButton
           label="Continue with test user"
-          onClick={testUserLogin}
+          onClick={loginWithTestUser}
         />
         <SecondaryButton
           Icon={GoogleIcon}
@@ -84,10 +107,7 @@ export const Login = () => {
           placeholder="Password"
         />
 
-        <SecondaryButton
-          onClick={() => alert("🚧 Work in Progress 🚧")}
-          label="Login"
-        />
+        <SecondaryButton onClick={login} label="Login" />
 
         <PrimaryButton
           onClick={(e) =>
