@@ -5,11 +5,13 @@ let coworks: NexusGenObjects["Cowork"][] = [
     id: 1,
     url: "www.howtographql.com",
     description: "Fullstack tutorial for GraphQL",
+    createdAt: "aa2",
   },
   {
     id: 2,
     url: "graphql.org",
     description: "GraphQL official website",
+    createdAt: "aa1",
   },
 ];
 
@@ -19,6 +21,7 @@ export const Cowork = objectType({
     t.nonNull.int("id");
     t.nonNull.string("description");
     t.nonNull.string("url");
+    t.nonNull.dateTime("createdAt");
     t.field("postedBy", {
       type: "User",
       resolve(parent, args, context) {
@@ -44,7 +47,6 @@ export const CoworkMutation = extendType({
         const { userId } = context;
 
         if (!userId) {
-          // 1
           throw new Error("Cannot post without logging in.");
         }
 
@@ -52,7 +54,7 @@ export const CoworkMutation = extendType({
           data: {
             description,
             url,
-            postedBy: { connect: { id: userId } }, // 2
+            postedBy: { connect: { id: userId } },
           },
         });
 

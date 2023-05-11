@@ -6,11 +6,10 @@ export const prisma = new PrismaClient();
 
 export interface Context {
   prisma: PrismaClient;
-  userId?: number; // 1
+  userId?: number;
 }
 
 export const context = ({ req }: { req: Request }): Context => {
-  // 2
   const token =
     req && req.headers.authorization
       ? decodeAuthHeader(req.headers.authorization)
