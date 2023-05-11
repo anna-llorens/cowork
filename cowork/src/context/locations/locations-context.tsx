@@ -24,6 +24,12 @@ const coworks: Cowork1[] = [
     address: { country: "" },
     contact: { id: "id", name: "aa", surname: "aa" },
   },
+  {
+    companyName: "Coworking together",
+    id: "my-id-id",
+    address: { country: "Spainn", city: "Barcelona" },
+    contact: { id: "id", name: "aa", surname: "aa" },
+  },
 ];
 const data = { coworks };
 

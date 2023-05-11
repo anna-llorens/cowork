@@ -11,12 +11,19 @@ import { useState } from "react";
 import { AUTH_TOKEN } from "../../utils";
 import { MenuItem } from "./menu-item";
 import { ManageLocationsItem } from "./manage-locations-item";
+import { useLocalStorage } from "../../hooks";
+import { useAuth } from "../../hooks/use-auth";
+import { useUser } from "../../hooks/use-user";
 
 export const SideBar = () => {
   const navigate = useNavigate();
   const { collapseSidebar } = useProSidebar();
+  const { setItem } = useLocalStorage();
+  const { logout } = useAuth();
   const [openAddLocation, setOpenAddLocation] = useState(false);
   const handleCloseLocationModal = () => setOpenAddLocation(false);
+  const { user } = useUser();
+  console.log(user, "aaa");
 
   return (
     <>
@@ -24,42 +31,43 @@ export const SideBar = () => {
         <MenuItem
           ItemIcon={MenuOutlinedIcon}
           onItemClick={() => collapseSidebar()}
-          children={<h2>Admin</h2>}
+          children={<h3>{user?.name}</h3>}
         />
 
         <MenuItem
           ItemIcon={HomeOutlinedIcon}
-          title="Home"
           onItemClick={() => navigate("home")}
+          title="Home"
         />
 
         <ManageLocationsItem />
 
         <MenuItem
-          onItemClick={() => setOpenAddLocation(true)}
           ItemIcon={AddLocationAltOutlinedIcon}
+          onItemClick={() => setOpenAddLocation(true)}
           title="Add Location"
         />
 
         <MenuItem
           ItemIcon={AccountCircleIcon}
-          title="My profile"
           onItemClick={() => navigate("my-profile")}
+          title="My profile"
         />
 
         <MenuItem
           ItemIcon={LiveHelpOutlinedIcon}
-          title="FAQ"
           onItemClick={() => navigate("faq")}
+          title="FAQ"
         />
 
         <MenuItem
           ItemIcon={LogoutIcon}
-          title="Logout"
           onItemClick={() => {
-            localStorage.setItem(AUTH_TOKEN, "");
+            setItem(AUTH_TOKEN, "");
+            logout();
             navigate("login");
           }}
+          title="Logout"
         />
       </Sidebar>
       <RegisterCoworkModal

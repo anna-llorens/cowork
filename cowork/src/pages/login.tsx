@@ -8,6 +8,8 @@ import { LOGIN_MUTATION, SIGNUP_MUTATION } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { AUTH_TOKEN } from "../utils";
+import { useLocalStorage } from "../hooks";
+import { useAuth } from "../hooks/use-auth";
 
 const LoginView = styled.div`
   height: 90vh;
@@ -25,6 +27,8 @@ const Container = styled.div`
   gap: 16px;
 `;
 export const Login = () => {
+  const { setItem } = useLocalStorage();
+  const { loginAuth } = useAuth();
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     login: true,
@@ -33,26 +37,18 @@ export const Login = () => {
     name: "",
   });
 
-  const loginWithTestUser = () => {
-    return login({
-      variables: {
-        email: "alice@prisma.io",
-        password: "graphql",
-      },
-      onCompleted: ({ login }) => {
-        localStorage.setItem(AUTH_TOKEN, login.token);
-        navigate("/home");
-      },
-    });
-  };
-
-  const [login] = useMutation(LOGIN_MUTATION, {
+  const [login1] = useMutation(LOGIN_MUTATION, {
     variables: {
       email: formState.email,
       password: formState.password,
     },
     onCompleted: ({ login }) => {
-      localStorage.setItem(AUTH_TOKEN, login.token);
+      setItem(AUTH_TOKEN, login.token);
+      loginAuth({
+        email: formState.email,
+        name: "Anna",
+        authToken: login.token,
+      });
       navigate("/home");
     },
   });
@@ -64,7 +60,7 @@ export const Login = () => {
       password: formState.password,
     },
     onCompleted: ({ signup }) => {
-      localStorage.setItem(AUTH_TOKEN, signup.token);
+      setItem(AUTH_TOKEN, signup.token);
       navigate("/");
     },
   });
@@ -74,10 +70,6 @@ export const Login = () => {
       <h1>Cowork</h1>
       <Container>
         <h2>Login</h2>
-        <SecondaryButton
-          label="Continue with test user"
-          onClick={loginWithTestUser}
-        />
         <SecondaryButton
           Icon={GoogleIcon}
           label="Continue with google"
@@ -121,7 +113,7 @@ export const Login = () => {
         />
 
         <SecondaryButton
-          onClick={formState.login ? login : signup}
+          onClick={formState.login ? login1 : signup}
           label="Continue"
         />
 
