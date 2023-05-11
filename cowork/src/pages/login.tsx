@@ -40,7 +40,7 @@ export const Login = () => {
         password: "graphql",
       },
       onCompleted: ({ login }) => {
-        localStorage.setItem("token", login.token);
+        localStorage.setItem(AUTH_TOKEN, login.token);
         navigate("/home");
       },
     });

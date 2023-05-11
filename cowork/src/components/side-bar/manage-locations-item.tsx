@@ -4,11 +4,11 @@ import EditLocationOutlinedIcon from "@mui/icons-material/EditLocationOutlined";
 import { useContext, useState } from "react";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 
-import { LocationsContext } from "../../../context/locations";
-import { RoutePath } from "../../../utils/types";
+import { LocationsContext } from "../../context/locations";
+import { RoutePath } from "../../utils/types";
 import { Link } from "react-router-dom";
 
-export const ManageLocations = () => {
+export const ManageLocationsItem = () => {
   const { getLocations, setActiveTab } = useContext(LocationsContext);
   const [locations, setLocations] = useState(getLocations());
 

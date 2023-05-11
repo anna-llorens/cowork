@@ -48,4 +48,8 @@ export const router = createBrowserRouter([
     path: Routes.NewCowork,
     element: <AddCowrk />,
   },
+  {
+    path: Routes.Faq,
+    element: <AddCowrk />,
+  },
 ]);
