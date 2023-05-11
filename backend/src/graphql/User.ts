@@ -7,11 +7,9 @@ export const User = objectType({
     t.nonNull.string("name");
     t.nonNull.string("email");
     t.nonNull.list.nonNull.field("coworks", {
-      // 1
       type: "Cowork",
       resolve(parent, args, context) {
-        // 2
-        return context.prisma.user // 3
+        return context.prisma.user
           .findUnique({ where: { id: parent.id } })
           .coworks();
       },

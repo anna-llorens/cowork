@@ -12,7 +12,7 @@ To start the local server:
 
 ```sh
 > cd backend
-> yarn && yarn start    # install dependecies and run the app
+> yarn && yarn dev    # install dependecies and run the app
 ```
 
 ```sh

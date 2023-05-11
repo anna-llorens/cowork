@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 import { useCompanies } from "../../graphql/hooks/use-companies";
-import { Cowork } from "../../utils/types";
+import { Cowork, Cowork1 } from "../../utils/types";
 import { useLocation } from "react-router-dom";
 
 export const LocationsContext = createContext<{
-  getLocations: () => Cowork[];
-  getCoworkData: (coworkId?: string) => Cowork | null;
+  getLocations: () => Cowork1[];
+  getCoworkData: (coworkId?: string) => Cowork1 | null;
   activeTab: string;
   setActiveTab: any;
   setCoworks: any;
@@ -17,7 +17,7 @@ export const LocationsContext = createContext<{
   setCoworks: null,
 });
 
-const coworks: Cowork[] = [
+const coworks: Cowork1[] = [
   {
     companyName: "Anna is testing",
     id: "my-id",

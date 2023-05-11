@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Cowork {
-  id          Int      @id @default(autoincrement())   // 4
-  createdAt   DateTime @default(now())  // 5
+  id          Int      @id @default(autoincrement())  
+  createdAt   DateTime @default(now())  
   description String
   url         String
   postedBy    User?    @relation(fields: [postedById], references: [id])
