@@ -40,8 +40,8 @@ export const Login = () => {
         password: "graphql",
       },
       onCompleted: ({ login }) => {
-        localStorage.setItem("token", login.token);
-        navigate("/");
+        localStorage.setItem(AUTH_TOKEN, login.token);
+        navigate("/home");
       },
     });
   };
@@ -53,7 +53,7 @@ export const Login = () => {
     },
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.token);
-      navigate("/");
+      navigate("/home");
     },
   });
 
