@@ -16,6 +16,7 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "babel-plugin-styled-components": "^2.1.1",
     "bcryptjs": "^2.4.3",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
@@ -32,6 +33,9 @@
     "subscriptions-transport-ws": "^0.11.0",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
+  },
+   "babel": {
+    "plugins": ["babel-plugin-styled-components"]
   },
   "scripts": {
     "start": "react-scripts start",

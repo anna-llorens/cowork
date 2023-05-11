@@ -1,10 +1,8 @@
-import { Cowork } from "../../utils";
-
-export const CoworkCard = ({ cowork }: { cowork: Cowork }) => {
+export const CoworkCard1 = ({ desciption, url }) => {
   return (
     <div>
       <div>
-        {cowork.description} ({cowork.url})
+        {desciption} - {url})
       </div>
     </div>
   );

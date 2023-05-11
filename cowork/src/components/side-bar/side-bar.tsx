@@ -23,7 +23,7 @@ export const SideBar = () => {
   const [openAddLocation, setOpenAddLocation] = useState(false);
   const handleCloseLocationModal = () => setOpenAddLocation(false);
   const { user } = useUser();
-  console.log(user, "aaa");
+  // TODO fix user
 
   return (
     <>

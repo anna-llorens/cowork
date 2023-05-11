@@ -145,6 +145,11 @@ export interface NexusGenArgTypes {
       password: string; // String!
     }
   }
+  Query: {
+    coworks: { // args
+      filter: string; // String!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {

@@ -69,8 +69,21 @@ export const CoworkQuery = extendType({
   definition(t) {
     t.nonNull.list.nonNull.field("coworks", {
       type: "Cowork",
+      args: {
+        filter: nonNull(stringArg()),
+      },
       resolve(parent, args, context) {
-        return context.prisma.cowork.findMany();
+        const where = args.filter
+          ? {
+              OR: [
+                { description: { contains: args.filter } },
+                { url: { contains: args.filter } },
+              ],
+            }
+          : {};
+        return context.prisma.cowork.findMany({
+          where,
+        });
       },
     });
   },

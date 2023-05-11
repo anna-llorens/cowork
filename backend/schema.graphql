@@ -27,7 +27,7 @@ type Mutation {
 }
 
 type Query {
-  coworks: [Cowork!]!
+  coworks(filter: String!): [Cowork!]!
 }
 
 type User {
