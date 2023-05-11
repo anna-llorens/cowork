@@ -41,7 +41,7 @@ export const Login = () => {
       },
       onCompleted: ({ login }) => {
         localStorage.setItem("token", login.token);
-        navigate("/");
+        navigate("/home");
       },
     });
   };
@@ -53,7 +53,7 @@ export const Login = () => {
     },
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.token);
-      navigate("/");
+      navigate("/home");
     },
   });
 

@@ -1,6 +1,7 @@
 import { RegisterCoworkModal } from "../../modals/resgister-cowork-modal";
 import { useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
+import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlined";
+
 import { MenuItem } from "./menu-item";
 
 export const AddLocation = () => {
@@ -10,7 +11,7 @@ export const AddLocation = () => {
     <>
       <MenuItem
         onItemClick={() => setOpen(true)}
-        ItemIcon={AddIcon}
+        ItemIcon={AddLocationAltOutlinedIcon}
         title="Add Location"
       />
       <RegisterCoworkModal isOpen={open} handleClose={handleClose} />
