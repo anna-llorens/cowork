@@ -6,6 +6,7 @@ export const LOGIN_MUTATION = gql`
       token
       user {
         email
+        name
         coworks {
           url
           description
@@ -35,6 +36,17 @@ export const SING_UP = gql`
   mutation signup($email: String!, $password: String!, $name: String!) {
     signup(email: $email, password: $password, name: $name) {
       token
+    }
+  }
+`;
+
+export const CREATE_COWORK = gql`
+  mutation PostMutation($description: String!, $url: String!) {
+    post(description: $description, url: $url) {
+      id
+      createdAt
+      url
+      description
     }
   }
 `;
