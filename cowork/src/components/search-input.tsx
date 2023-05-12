@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { gray01, spaceL, spaceM, spaceXS } from "../utils";
+import { gray01, spaceL, spaceS, spaceXS } from "../utils";
 import { useContext, useState } from "react";
 import { SearchContext } from "../context/search";
 
-const SearchContainer = styled.div`
+const Search = styled.div`
   width: 100%;
   display: flex;
   min-width: 200px;
@@ -19,9 +19,13 @@ const StyledInput = styled.input`
   width: 100%;
 `;
 
+const ResultCount = styled.div`
+  margin-top: ${spaceS};
+`;
+
 export const SearchInput = () => {
   const [value, setValue] = useState("");
-  const { searchLocations } = useContext(SearchContext);
+  const { searchLocations, results } = useContext(SearchContext);
 
   const updateSearch = (e) => {
     setValue(e.target.value);
@@ -29,13 +33,16 @@ export const SearchInput = () => {
   };
 
   return (
-    <SearchContainer>
-      <StyledInput
-        type="text"
-        placeholder="Find a place to work"
-        onChange={updateSearch}
-        value={value}
-      />
-    </SearchContainer>
+    <div>
+      <Search>
+        <StyledInput
+          type="text"
+          placeholder="Find a place to work"
+          onChange={updateSearch}
+          value={value}
+        />
+      </Search>
+      <ResultCount>{results?.length} results</ResultCount>
+    </div>
   );
 };
