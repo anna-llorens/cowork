@@ -9,5 +9,5 @@ export const server = new ApolloServer({
 const port = 4001;
 
 server.listen({ port }).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
+  console.info(`🚀  Server ready at ${url}`);
 });

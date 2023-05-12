@@ -29,9 +29,16 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  CoworkOrderByInput: { // input type
+    companyName?: NexusGenEnums['Sort'] | null; // Sort
+    createdAt?: NexusGenEnums['Sort'] | null; // Sort
+    description?: NexusGenEnums['Sort'] | null; // Sort
+    url?: NexusGenEnums['Sort'] | null; // Sort
+  }
 }
 
 export interface NexusGenEnums {
+  Sort: "asc" | "desc"
 }
 
 export interface NexusGenScalars {
@@ -49,10 +56,16 @@ export interface NexusGenObjects {
     user: NexusGenRootTypes['User']; // User!
   }
   Cowork: { // root type
+    companyName: string; // String!
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     description: string; // String!
     id: number; // Int!
     url: string; // String!
+  }
+  Feed: { // root type
+    count: number; // Int!
+    coworks: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
+    id?: string | null; // ID
   }
   Mutation: {};
   Query: {};
@@ -60,6 +73,11 @@ export interface NexusGenObjects {
     email: string; // String!
     id: number; // Int!
     name: string; // String!
+  }
+  Vote: { // root type
+    cowork: NexusGenRootTypes['Cowork']; // Cowork!
+    time?: NexusGenScalars['DateTime'] | null; // DateTime
+    user: NexusGenRootTypes['User']; // User!
   }
 }
 
@@ -71,7 +89,7 @@ export interface NexusGenUnions {
 
 export type NexusGenRootTypes = NexusGenObjects
 
-export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
+export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnums
 
 export interface NexusGenFieldTypes {
   AuthPayload: { // field return type
@@ -79,25 +97,39 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User']; // User!
   }
   Cowork: { // field return type
+    companyName: string; // String!
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     description: string; // String!
     id: number; // Int!
     postedBy: NexusGenRootTypes['User'] | null; // User
     url: string; // String!
+    voters: NexusGenRootTypes['User'][]; // [User!]!
+  }
+  Feed: { // field return type
+    count: number; // Int!
+    coworks: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
+    id: string | null; // ID
   }
   Mutation: { // field return type
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     post: NexusGenRootTypes['Cowork']; // Cowork!
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
+    vote: NexusGenRootTypes['Cowork'] | null; // Cowork
   }
   Query: { // field return type
-    coworks: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
+    feed: NexusGenRootTypes['Feed']; // Feed!
   }
   User: { // field return type
     coworks: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
     email: string; // String!
     id: number; // Int!
     name: string; // String!
+    votes: NexusGenRootTypes['Cowork'][]; // [Cowork!]!
+  }
+  Vote: { // field return type
+    cowork: NexusGenRootTypes['Cowork']; // Cowork!
+    time: NexusGenScalars['DateTime'] | null; // DateTime
+    user: NexusGenRootTypes['User']; // User!
   }
 }
 
@@ -107,25 +139,39 @@ export interface NexusGenFieldTypeNames {
     user: 'User'
   }
   Cowork: { // field return type name
+    companyName: 'String'
     createdAt: 'DateTime'
     description: 'String'
     id: 'Int'
     postedBy: 'User'
     url: 'String'
+    voters: 'User'
+  }
+  Feed: { // field return type name
+    count: 'Int'
+    coworks: 'Cowork'
+    id: 'ID'
   }
   Mutation: { // field return type name
     login: 'AuthPayload'
     post: 'Cowork'
     signup: 'AuthPayload'
+    vote: 'Cowork'
   }
   Query: { // field return type name
-    coworks: 'Cowork'
+    feed: 'Feed'
   }
   User: { // field return type name
     coworks: 'Cowork'
     email: 'String'
     id: 'Int'
     name: 'String'
+    votes: 'Cowork'
+  }
+  Vote: { // field return type name
+    cowork: 'Cowork'
+    time: 'DateTime'
+    user: 'User'
   }
 }
 
@@ -136,6 +182,7 @@ export interface NexusGenArgTypes {
       password: string; // String!
     }
     post: { // args
+      companyName: string; // String!
       description: string; // String!
       url: string; // String!
     }
@@ -144,10 +191,16 @@ export interface NexusGenArgTypes {
       name: string; // String!
       password: string; // String!
     }
+    vote: { // args
+      linkId: number; // Int!
+    }
   }
   Query: {
-    coworks: { // args
+    feed: { // args
       filter: string; // String!
+      orderBy?: NexusGenInputs['CoworkOrderByInput'][] | null; // [CoworkOrderByInput!]
+      skip?: number | null; // Int
+      take?: number | null; // Int
     }
   }
 }
@@ -160,9 +213,9 @@ export interface NexusGenTypeInterfaces {
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = keyof NexusGenInputs;
 
-export type NexusGenEnumNames = never;
+export type NexusGenEnumNames = keyof NexusGenEnums;
 
 export type NexusGenInterfaceNames = never;
 
