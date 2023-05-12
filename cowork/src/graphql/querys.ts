@@ -20,6 +20,8 @@ export const GET_LOCATIONS = gql`
   }
 `;
 
+
+
 export const GET_COWORKS = gql`
   {
     coworks {

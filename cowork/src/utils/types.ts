@@ -1,12 +1,10 @@
 export enum Routes {
-  Register = "register",
-  Coworks = "coworks",
-  Login = "login",
-  Loading = "loading",
-  NewCowork = "new",
-  Home = "home",
-  MyProfile = "my-profile",
-  Faq = "faq",
+  login = "login",
+  loading = "loading",
+  home = "home",
+  myProfile = "my-profile",
+  faq = "faq",
+  locationId = "locations/:locationId",
 }
 
 export enum RoutePath {

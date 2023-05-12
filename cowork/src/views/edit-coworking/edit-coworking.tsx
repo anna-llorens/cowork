@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { space3XL, spaceXL } from "../../utils";
-import { AddressCard } from "./cards/address-card";
-import { ContactCard } from "./cards";
+import { AddressCard } from "./edit-cards/address-card";
+import { ContactCard } from "./edit-cards";
 import { LocationsContext } from "../../context/locations";
 import { useContext } from "react";
-import { BuildingCard } from "./cards/building-card";
+import { BuildingCard } from "./edit-cards/building-card";
 
 const Main = styled.main`
   margin: ${spaceXL} ${space3XL};
@@ -16,7 +16,7 @@ const CardSection = styled.section`
   grid-template-rows: min-content 1fr min-content;
 `;
 
-export const LocationView = () => {
+export const EditCoworking = () => {
   const { getCoworkData } = useContext(LocationsContext);
   const cowork = getCoworkData();
 

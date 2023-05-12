@@ -1,47 +1,38 @@
 import { createBrowserRouter } from "react-router-dom";
 import * as View from "./views";
 import { Routes } from "./utils/types";
-import { Coworks } from "./views/coworks";
 import AddCowrk from "./components/modals/add-cowork";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <View.Home />,
+    element: <View.Main />,
     errorElement: <View.ErrorPage />,
     children: [
       {
-        path: "locations/:locationId",
-        element: <View.LocationView />,
+        path: Routes.locationId,
+        element: <View.EditCoworking />,
       },
       {
-        path: Routes.Home,
+        path: Routes.home,
         element: <View.Search />,
       },
       {
-        path: Routes.MyProfile,
+        path: Routes.myProfile,
         element: <View.MyProfile />,
       },
     ],
   },
   {
-    path: Routes.Login,
+    path: Routes.login,
     element: <View.Login />,
   },
   {
-    path: Routes.Loading,
+    path: Routes.loading,
     element: <View.Loading />,
   },
   {
-    path: Routes.Coworks,
-    element: <Coworks />,
-  },
-  {
-    path: Routes.NewCowork,
-    element: <AddCowrk />,
-  },
-  {
-    path: Routes.Faq,
+    path: Routes.faq,
     element: <AddCowrk />,
   },
 ]);
