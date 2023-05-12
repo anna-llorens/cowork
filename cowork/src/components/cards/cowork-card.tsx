@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import coworkImage from "../../static/png/cowork.jpeg";
+import coworkImage from "../../static/cowork.jpeg";
 
 export const CoworkCard = ({ description, url }) => {
   return (

@@ -19,6 +19,7 @@ const ResultsContainer = styled.div`
   display: flex;
   gap: ${space3XL};
 `;
+
 const MapContainer = styled.div`
   margin-bottom: 24px;
 `;
