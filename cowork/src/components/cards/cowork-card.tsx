@@ -5,13 +5,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import coworkImage from "../../static/cowork.jpeg";
 import styled from "styled-components";
-import { gray00 } from "../../utils";
+import { gray00, spaceL } from "../../utils";
+import { Button, CardActions } from "@mui/material";
 
 const StyledCard = styled(Card)`
   &:hover {
     background-color: ${gray00};
     cursor: pointer;
   }
+`;
+const StyledCardActions = styled(CardActions)`
+  margin-right: ${spaceL};
 `;
 
 export const CoworkCard = ({ description, url }) => {
@@ -38,6 +42,11 @@ export const CoworkCard = ({ description, url }) => {
           </Typography>
         </CardContent>
       </Box>
+      <StyledCardActions>
+        <Button size="small" variant="contained">
+          Book
+        </Button>
+      </StyledCardActions>
     </StyledCard>
   );
 };
