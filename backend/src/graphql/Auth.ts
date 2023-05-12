@@ -53,7 +53,7 @@ export const AuthMutation = extendType({
           where: { email: args.email },
         });
         if (!user) {
-          throw new Error("No such user found");
+          throw new Error("No user found");
         }
 
         const valid = await bcrypt.compare(args.password, user.password);

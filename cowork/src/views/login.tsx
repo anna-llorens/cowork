@@ -7,9 +7,11 @@ import { PrimaryButton, SecondaryButton } from "../components/buttons";
 import { LOGIN_MUTATION, SIGNUP_MUTATION } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { AUTH_TOKEN } from "../utils";
+import { AUTH_TOKEN, spaceS } from "../utils";
 import { useLocalStorage } from "../hooks";
 import { useAuth } from "../hooks/use-auth";
+import { Alert } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const LoginView = styled.div`
   height: 90vh;
@@ -26,6 +28,15 @@ const Container = styled.div`
   justify-content: center;
   gap: 16px;
 `;
+
+const StyledAlert = styled(Alert)`
+  width: 292px;
+  &&& {
+    padding: 0;
+    padding-left: ${spaceS};
+  }
+`;
+
 export const Login = () => {
   const { setItem } = useLocalStorage();
   const { loginAuth } = useAuth();
@@ -37,7 +48,7 @@ export const Login = () => {
     name: "",
   });
 
-  const [login1] = useMutation(LOGIN_MUTATION, {
+  const [login, { loading, error }] = useMutation(LOGIN_MUTATION, {
     variables: {
       email: formState.email,
       password: formState.password,
@@ -46,7 +57,7 @@ export const Login = () => {
       setItem(AUTH_TOKEN, login.token);
       loginAuth({
         email: formState.email,
-        name: "Anna",
+        name: login.name,
         authToken: login.token,
       });
       navigate("/home");
@@ -61,7 +72,7 @@ export const Login = () => {
     },
     onCompleted: ({ signup }) => {
       setItem(AUTH_TOKEN, signup.token);
-      navigate("/");
+      navigate("/home");
     },
   });
 
@@ -90,6 +101,11 @@ export const Login = () => {
             placeholder="Your name"
           />
         )}
+
+        {error ? (
+          <StyledAlert severity="error">{error.message}</StyledAlert>
+        ) : null}
+
         <TextField
           value={formState.email}
           onChange={(e) =>
@@ -111,11 +127,16 @@ export const Login = () => {
           type="password"
           placeholder="Password"
         />
-
-        <SecondaryButton
-          onClick={formState.login ? login1 : signup}
-          label="Continue"
-        />
+        {loading ? (
+          <LoadingButton loading={loading} variant="outlined">
+            Continue
+          </LoadingButton>
+        ) : (
+          <SecondaryButton
+            onClick={formState.login ? login : signup}
+            label="Continue"
+          />
+        )}
 
         <PrimaryButton
           onClick={(e) =>

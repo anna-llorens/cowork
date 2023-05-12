@@ -35,7 +35,14 @@ export type Cowork1 = {
 };
 
 export type Cowork = {
-  description: string;
   id?: string;
+  companyName: string;
+  description: string;
   url: string;
+  postedBy: {
+    name?: string;
+    votes: {
+      companyName: string;
+    };
+  };
 };

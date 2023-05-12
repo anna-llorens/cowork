@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { Card } from "../../../components";
+import { Card } from "../../../components/card";
 import { AdressInfo } from "./adress-info";
 
 export const AddressCard = () => {

@@ -8,11 +8,20 @@ type AuthPayload {
 }
 
 type Cowork {
+  companyName: String!
   createdAt: DateTime!
   description: String!
   id: Int!
   postedBy: User
   url: String!
+  voters: [User!]!
+}
+
+input CoworkOrderByInput {
+  companyName: Sort
+  createdAt: Sort
+  description: Sort
+  url: Sort
 }
 
 """
@@ -20,14 +29,26 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
+type Feed {
+  count: Int!
+  coworks: [Cowork!]!
+  id: ID
+}
+
 type Mutation {
   login(email: String!, password: String!): AuthPayload!
-  post(description: String!, url: String!): Cowork!
+  post(companyName: String!, description: String!, url: String!): Cowork!
   signup(email: String!, name: String!, password: String!): AuthPayload!
+  vote(linkId: Int!): Vote
 }
 
 type Query {
-  coworks(filter: String!): [Cowork!]!
+  feed(filter: String!, orderBy: [CoworkOrderByInput!], skip: Int, take: Int): Feed!
+}
+
+enum Sort {
+  asc
+  desc
 }
 
 type User {
@@ -35,4 +56,11 @@ type User {
   email: String!
   id: Int!
   name: String!
+  votes: [Cowork!]!
+}
+
+type Vote {
+  cowork: Cowork!
+  time: DateTime
+  user: User!
 }

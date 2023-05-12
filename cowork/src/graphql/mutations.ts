@@ -50,3 +50,18 @@ export const CREATE_COWORK = gql`
     }
   }
 `;
+
+export const VOTE_MUTATION = gql`
+  mutation VoteMutation($linkId: Int!) {
+    vote(linkId: $linkId) {
+      cowork {
+        url
+        description
+      }
+      user {
+        name
+        email
+      }
+    }
+  }
+`;

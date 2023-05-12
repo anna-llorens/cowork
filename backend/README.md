@@ -1,4 +1,4 @@
-### 🔼 Prisma
+### ℹ️ Prisma Guide
 
 Launch prisma studio:
 
@@ -16,4 +16,10 @@ Re-generate PrismaClient
 
 ```sh
 npx prisma generate
+```
+
+Add new rows to existing tables
+
+```sh
+ npx prisma migrate dev --create-only
 ```
