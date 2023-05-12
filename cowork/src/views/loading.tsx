@@ -21,7 +21,6 @@ const Container = styled.span`
   justify-content: center;
   flex-direction: column;
   height: 60px;
-  width: 400px;
 `;
 
 export const Loading = () => {

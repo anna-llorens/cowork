@@ -1,5 +1,4 @@
 import { Button, Typography } from "@mui/material";
-import { Card } from "../../../components";
 import { useContext } from "react";
 import { LocationsContext } from "../../../context/locations";
 

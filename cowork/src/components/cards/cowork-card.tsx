@@ -4,10 +4,19 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import coworkImage from "../../static/cowork.jpeg";
+import styled from "styled-components";
+import { gray00 } from "../../utils";
+
+const StyledCard = styled(Card)`
+  &:hover {
+    background-color: ${gray00};
+    cursor: pointer;
+  }
+`;
 
 export const CoworkCard = ({ description, url }) => {
   return (
-    <Card sx={{ display: "flex", height: "160px", marginBottom: "16px" }}>
+    <StyledCard sx={{ display: "flex", height: "160px", marginBottom: "16px" }}>
       <CardMedia
         component="img"
         sx={{ width: 160 }}
@@ -15,7 +24,7 @@ export const CoworkCard = ({ description, url }) => {
         alt="Live from space album cover"
       />
 
-      <Box sx={{ display: "flex", flexDirection: "column", width: "350px" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", width: "600px" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>
           <Typography component="div" variant="h5">
             {description}
@@ -29,6 +38,6 @@ export const CoworkCard = ({ description, url }) => {
           </Typography>
         </CardContent>
       </Box>
-    </Card>
+    </StyledCard>
   );
 };

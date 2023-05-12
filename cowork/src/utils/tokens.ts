@@ -9,3 +9,6 @@ export const space3XL = "48px";
 export const space4XL = "68px";
 export const space5XL = "92px";
 export const space6XL = "122px";
+
+export const gray00 = "rgba(0, 0, 0, 0.08)";
+export const gray01 = "#f1f1f1";
