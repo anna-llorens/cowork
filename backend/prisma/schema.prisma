@@ -9,11 +9,14 @@ datasource db {
 
 model Cowork {
   id          Int      @id @default(autoincrement())  
-  createdAt   DateTime @default(now())  
-  description String
+  companyName String
   url         String
-  postedBy    User?    @relation(fields: [postedById], references: [id])
+  description String
+  address     String?
+  createdAt   DateTime @default(now())  
+  owner    User?    @relation(name: "PostedBy", fields: [postedById], references: [id])  // 2
   postedById  Int?
+  voters      User[]   @relation(name: "Votes")  // 1
 }
 
 
@@ -22,5 +25,6 @@ model User {
   name      String
   email     String   @unique
   password  String
-  coworks    Cowork[]
+  coworks  Cowork[]  @relation(name: "PostedBy")
+  votes    Cowork[] @relation(name: "Votes") 
 }
