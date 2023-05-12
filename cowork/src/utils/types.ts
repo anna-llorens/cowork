@@ -1,7 +1,12 @@
 export enum Routes {
   Register = "register",
-  Locations = "locations",
+  Coworks = "coworks",
   Login = "login",
+  Loading = "loading",
+  NewCowork = "new",
+  Home = "home",
+  MyProfile = "my-profile",
+  Faq = "faq",
 }
 
 export enum RoutePath {
@@ -23,10 +28,16 @@ export type Person = {
   number?: string;
 };
 
-export type Cowork = {
+export type Cowork1 = {
   id?: string;
   companyName: string;
   web?: string;
   address: Address;
   contact: Person;
+};
+
+export type Cowork = {
+  description: string;
+  id?: string;
+  url: string;
 };

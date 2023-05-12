@@ -12,7 +12,7 @@ export const BuildingCard = () => {
       cardContent={
         <>
           <h5>Web site</h5>
-          <Typography>{cowork?.web}</Typography>
+          {/* <Typography>{cowork?.web}</Typography> */}
         </>
       }
       cardActions={

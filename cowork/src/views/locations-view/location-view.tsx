@@ -23,7 +23,8 @@ export const LocationView = () => {
   return (
     <Main>
       <h1>Manage your location</h1>
-      <h2>{cowork?.companyName}</h2>
+      {/* <h2>{cowork?.companyName}</h2> */}
+      <h2>My cowork space</h2>
       <section>
         <img
           src="https://res.cloudinary.com/terieyenike/image/upload/c_thumb,g_face,w_317/v1637140050/calm_teri_b3eziq.jpg"

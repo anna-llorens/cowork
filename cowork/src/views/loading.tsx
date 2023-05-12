@@ -6,21 +6,22 @@ const spin = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
-const Circle = styled.div`
-  border: 16px solid #f3f3f3;
+const Circle = styled.span`
+  border: 5px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
+  border-top: 5px solid #9ba4b5;
+  width: 30px;
+  height: 30px;
   animation: ${spin} 2s linear infinite;
 `;
 
-const Container = styled.div`
+const Container = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 450px;
+  height: 60px;
+  width: 400px;
 `;
 
 export const Loading = () => {

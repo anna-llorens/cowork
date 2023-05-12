@@ -6,12 +6,12 @@ export const AdressInfo = () => {
   const cowork = getCoworkData();
   return (
     <>
-      <h4>{cowork?.address?.city}</h4>
+      {/* <h4>{cowork?.address?.city}</h4>
       <div>{cowork?.address?.street}</div>
       <div>
         {cowork?.address?.postalCode ? `${cowork?.address.postalCode}, ` : ""}
         {cowork?.address?.country}
-      </div>
+      </div> */}
     </>
   );
 };

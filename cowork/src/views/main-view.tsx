@@ -5,9 +5,5 @@ const StyledMainView = styled.div`
   margin-left: "2rem";
 `;
 export const MainView = () => {
-  return (
-    <StyledMainView>
-      <Outlet />
-    </StyledMainView>
-  );
+  return <Outlet />;
 };

@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { CoworkCard } from "./cowork-card";
+import { CoworkCard1 } from "./cowork-card";
 import { GET_COWORKS } from "../../graphql/querys";
 
 export const Coworks = () => {
@@ -10,7 +10,11 @@ export const Coworks = () => {
       {data && (
         <>
           {data.feed.map((cowork) => (
-            <CoworkCard key={cowork.id} cowork={cowork} />
+            <CoworkCard1
+              key={cowork.id}
+              desciption={cowork.description}
+              url={cowork.url}
+            />
           ))}
         </>
       )}

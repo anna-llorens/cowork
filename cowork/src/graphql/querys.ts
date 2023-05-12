@@ -29,3 +29,18 @@ export const GET_COWORKS = gql`
     }
   }
 `;
+
+export const SEARCH_QUERY = gql`
+  query FeedSearchQuery($filter: String!) {
+    coworks(filter: $filter) {
+      id
+      url
+      description
+      createdAt
+      postedBy {
+        id
+        name
+      }
+    }
+  }
+`;
