@@ -6,7 +6,7 @@ export const useSearchQuery = () => {
   const [executeSearch, { data, loading, error }] = useLazyQuery(SEARCH_QUERY, {
     variables: { filter: "" },
   });
-  const searchResults = data?.coworks;
+  const searchResults = data?.feed?.coworks;
   useEffect(() => {
     executeSearch();
   }, []);

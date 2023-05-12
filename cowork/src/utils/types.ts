@@ -36,6 +36,7 @@ export type Cowork1 = {
 
 export type Cowork = {
   description: string;
+  companyName: string;
   id?: string;
   url: string;
 };

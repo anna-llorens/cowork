@@ -20,7 +20,6 @@ export const AuthContextProvider = ({ children }) => {
   const { user, loginAuth, logout } = useAuth();
 
   const setUser = () => {
-    console.log(user, "nnn");
     return loginAuth(user);
   };
 
