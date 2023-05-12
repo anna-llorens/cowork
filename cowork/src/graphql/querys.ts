@@ -39,6 +39,12 @@ export const SEARCH_QUERY = gql`
         companyName
         description
         url
+        postedBy {
+          name
+          votes {
+            companyName
+          }
+        }
       }
     }
   }

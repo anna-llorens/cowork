@@ -39,7 +39,7 @@ type Mutation {
   login(email: String!, password: String!): AuthPayload!
   post(companyName: String!, description: String!, url: String!): Cowork!
   signup(email: String!, name: String!, password: String!): AuthPayload!
-  vote(linkId: Int!): Cowork
+  vote(linkId: Int!): Vote
 }
 
 type Query {

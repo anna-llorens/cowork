@@ -14,7 +14,7 @@ export const VoteMutation = extendType({
   type: "Mutation",
   definition(t) {
     t.field("vote", {
-      type: "Cowork",
+      type: "Vote",
       args: {
         linkId: nonNull(intArg()),
       },

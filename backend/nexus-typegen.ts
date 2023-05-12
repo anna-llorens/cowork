@@ -114,7 +114,7 @@ export interface NexusGenFieldTypes {
     login: NexusGenRootTypes['AuthPayload']; // AuthPayload!
     post: NexusGenRootTypes['Cowork']; // Cowork!
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
-    vote: NexusGenRootTypes['Cowork'] | null; // Cowork
+    vote: NexusGenRootTypes['Vote'] | null; // Vote
   }
   Query: { // field return type
     feed: NexusGenRootTypes['Feed']; // Feed!
@@ -156,7 +156,7 @@ export interface NexusGenFieldTypeNames {
     login: 'AuthPayload'
     post: 'Cowork'
     signup: 'AuthPayload'
-    vote: 'Cowork'
+    vote: 'Vote'
   }
   Query: { // field return type name
     feed: 'Feed'

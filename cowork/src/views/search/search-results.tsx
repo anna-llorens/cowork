@@ -25,7 +25,10 @@ export const SearchResults = () => {
         <CoworkCard
           key={cowork.id}
           url={cowork.url}
-          description={cowork.companyName}
+          companyName={cowork.companyName}
+          votes={cowork?.postedBy.votes}
+          postedBy={cowork.postedBy}
+          id={cowork.id}
         />
       ))}
     </ResultsContainer>
