@@ -57,6 +57,9 @@ export const VOTE_MUTATION = gql`
       cowork {
         url
         description
+        voters {
+          id
+        }
       }
       user {
         name

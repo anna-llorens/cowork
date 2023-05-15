@@ -19,6 +19,7 @@ export const SearchResults = () => {
         <Loading />
       </ResultsContainer>
     );
+
   return (
     <ResultsContainer>
       {results?.map((cowork) => (
@@ -26,7 +27,7 @@ export const SearchResults = () => {
           key={cowork.id}
           url={cowork.url}
           companyName={cowork.companyName}
-          votes={cowork?.postedBy.votes}
+          voters={cowork?.voters?.length}
           postedBy={cowork.postedBy}
           id={cowork.id}
         />
