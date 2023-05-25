@@ -45,4 +45,5 @@ export type Cowork = {
       companyName: string;
     };
   };
+  voters: any;
 };

@@ -9,6 +9,8 @@ import { gray00, spaceL } from "../../utils";
 import { Button, CardActions } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { VOTE_MUTATION } from "../../graphql/mutations";
+import { log } from "console";
+import { useState } from "react";
 
 const StyledCard = styled(Card)`
   &:hover {
@@ -20,14 +22,18 @@ const StyledCardActions = styled(CardActions)`
   margin-right: ${spaceL};
 `;
 
-export const CoworkCard = ({ companyName, url, votes, postedBy, id }) => {
+export const CoworkCard = ({ companyName, url, voters, postedBy, id }) => {
+  const [votes, setVotes] = useState(voters);
   const [vote] = useMutation(VOTE_MUTATION, {
     variables: {
       linkId: id,
     },
+    onCompleted(data) {
+      setVotes(data?.vote.cowork.voters.length);
+    },
   });
 
-  console.log(votes, id);
+  console.log(voters, id);
 
   return (
     <StyledCard sx={{ display: "flex", height: "160px", marginBottom: "16px" }}>
@@ -51,7 +57,7 @@ export const CoworkCard = ({ companyName, url, votes, postedBy, id }) => {
             {url}
           </Typography>
           <div className="f6 lh-copy gray">
-            {votes?.length} votes | by {postedBy ? postedBy.name : "Unknown"}{" "}
+            {votes} booking | by {postedBy ? postedBy.name : "Unknown"}{" "}
           </div>
         </CardContent>
       </Box>

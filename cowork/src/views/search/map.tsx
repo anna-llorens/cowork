@@ -18,16 +18,16 @@ export const Map = () => {
         Google map preview. Available Locations will be pinned on the map. 🚧
         WIP 🚧
       </Alert>
-      <div className="map">
-        {!isLoaded ? (
+    <div className="map">
+      {!isLoaded ? (
           <div>Map preview</div>
-        ) : (
-          <GoogleMap
-            mapContainerClassName="map-container"
-            center={center}
-            zoom={14}
-          ></GoogleMap>
-        )}
+      ) : (
+        <GoogleMap
+          mapContainerClassName="map-container"
+          center={center}
+          zoom={14}
+        ></GoogleMap>
+      )}
       </div>
     </div>
   );
