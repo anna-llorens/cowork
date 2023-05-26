@@ -9,7 +9,6 @@ import { gray00, spaceL } from "../../utils";
 import { Button, CardActions } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { VOTE_MUTATION } from "../../graphql/mutations";
-import { log } from "console";
 import { useState } from "react";
 
 const StyledCard = styled(Card)`
@@ -32,8 +31,6 @@ export const CoworkCard = ({ companyName, url, voters, postedBy, id }) => {
       setVotes(data?.vote.cowork.voters.length);
     },
   });
-
-  console.log(voters, id);
 
   return (
     <StyledCard sx={{ display: "flex", height: "160px", marginBottom: "16px" }}>

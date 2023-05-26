@@ -41,8 +41,12 @@ export const SING_UP = gql`
 `;
 
 export const CREATE_COWORK = gql`
-  mutation PostMutation($description: String!, $url: String!) {
-    post(description: $description, url: $url) {
+  mutation PostMutation(
+    $description: String!
+    $url: String!
+    $companyName: String!
+  ) {
+    post(description: $description, url: $url, companyName: $companyName) {
       id
       createdAt
       url
