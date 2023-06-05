@@ -159,43 +159,7 @@ export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
             onChange={handleFormChange}
           />
         </StyledBox>
-        <Separator>Contact point:</Separator>
-        <StyledBox>
-          <StyledTextField
-            required
-            label="Name"
-            size="small"
-            name="name"
-            value={form.contact.name}
-            onChange={handleFormChange}
-          />
-          <StyledTextField
-            required
-            label="Surname"
-            size="small"
-            name="surname"
-            value={form.contact.surname}
-            onChange={handleFormChange}
-          />
-        </StyledBox>
-        <StyledBox>
-          <StyledTextField
-            required
-            label="Contact number"
-            size="small"
-            name="number"
-            value={form.contact.number}
-            onChange={handleFormChange}
-          />
-          <StyledTextField
-            required
-            label="Email"
-            size="small"
-            name="email"
-            value={form.contact.email}
-            onChange={handleFormChange}
-          />
-        </StyledBox>
+
         <Separator>
           <Button variant="outlined" onClick={handleClose}>
             Cancel
