@@ -5,11 +5,12 @@ import { useContext, useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import styled from "styled-components";
 import { Button, TextField, Typography } from "@mui/material";
-import { ADD_COWORK } from "../../graphql/mutations";
+import { ADD_COWORK, CREATE_COWORK } from "../../graphql/mutations";
 import { LocationsContext } from "../../context/locations";
+import { useNavigate } from "react-router-dom";
 
 const style = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
@@ -26,10 +27,14 @@ export const Separator = styled.div`
   justify-content: space-around;
 `;
 
+const StyledTextField = styled(TextField)`
+  width: 100%;
+  margin-bottom: 8px !important;
+`;
+
 const StyledBox = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin-top: 8px;
+  gap: 8px;
 `;
 
 const coworkInitialState = {
@@ -51,9 +56,9 @@ const coworkInitialState = {
 };
 
 export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
+  const navigate = useNavigate();
   const { setCoworks } = useContext(LocationsContext);
   const [open, setOpen] = React.useState(isOpen);
-  const [addCowork, { data }] = useMutation(ADD_COWORK);
 
   const onClose = () => {
     setOpen(false);
@@ -67,18 +72,19 @@ export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
 
   const [form, setForm] = useState(coworkInitialState);
 
-  const registerCompany = () => {
-    handleClose();
-    debugger;
-    return addCowork({
-      variables: {
-        cowork: form,
-      },
-    });
-  };
+  const [createCowork] = useMutation(CREATE_COWORK, {
+    variables: {
+      description: form.address.city,
+      url: form.web,
+      companyName: form.companyName,
+    },
+    onCompleted: () => {
+      handleClose();
+      navigate("/home");
+    },
+  });
 
   const handleFormChange = (event) => {
-    debugger;
     const { name, value } = event.target;
     const updatedForm = { ...form };
     if (form.address[name] !== undefined) {
@@ -93,111 +99,72 @@ export const RegisterCoworkModal = ({ isOpen, handleClose }) => {
 
   return (
     <Modal open={open} onClose={onClose}>
-      <Box sx={style}>
+      <Box sx={style} style={{ width: "800px" }}>
         <Separator>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Register your coworking space
           </Typography>
         </Separator>
-        <div>
-          <StyledBox>
-            <TextField
-              required
-              label="Company name"
-              size="small"
-              name="companyName"
-              value={form.companyName}
-              onChange={handleFormChange}
-            />
-            <TextField
-              required
-              label="Site web"
-              size="small"
-              name="web"
-              value={form.web}
-              onChange={handleFormChange}
-            />
-          </StyledBox>
-          <Separator>Address: </Separator>
-          <StyledBox>
-            <TextField
-              required
-              label="City"
-              size="small"
-              name="city"
-              value={form.address.city}
-              onChange={handleFormChange}
-            />
-            <TextField
-              required
-              label="Country"
-              size="small"
-              name="country"
-              value={form.address.country}
-              onChange={handleFormChange}
-            />
-          </StyledBox>
-          <StyledBox>
-            <TextField
-              required
-              label="Street"
-              size="small"
-              name="street"
-              value={form.address.street}
-              onChange={handleFormChange}
-            />
-            <TextField
-              required
-              label="Postal code"
-              size="small"
-              name="postalCode"
-              value={form.address.postalCode}
-              onChange={handleFormChange}
-            />
-          </StyledBox>
-          <Separator>Contact point:</Separator>
-          <StyledBox>
-            <TextField
-              required
-              label="Name"
-              size="small"
-              name="name"
-              value={form.contact.name}
-              onChange={handleFormChange}
-            />
-            <TextField
-              required
-              label="Surname"
-              size="small"
-              name="surname"
-              value={form.contact.surname}
-              onChange={handleFormChange}
-            />
-          </StyledBox>
-          <StyledBox>
-            <TextField
-              required
-              label="Contact number"
-              size="small"
-              name="number"
-              value={form.contact.number}
-              onChange={handleFormChange}
-            />
-            <TextField
-              required
-              label="Email"
-              size="small"
-              name="email"
-              value={form.contact.email}
-              onChange={handleFormChange}
-            />
-          </StyledBox>
-        </div>
+        <StyledTextField
+          required
+          label="Company name"
+          size="small"
+          name="companyName"
+          value={form.companyName}
+          onChange={handleFormChange}
+        />
+        <StyledTextField
+          required
+          label="Site web"
+          size="small"
+          name="web"
+          value={form.web}
+          onChange={handleFormChange}
+        />
+
+        <Separator>Address: </Separator>
+        <StyledBox>
+          <StyledTextField
+            required
+            label="City"
+            size="small"
+            name="city"
+            value={form.address.city}
+            onChange={handleFormChange}
+          />
+          <StyledTextField
+            required
+            label="Country"
+            size="small"
+            name="country"
+            value={form.address.country}
+            onChange={handleFormChange}
+          />
+        </StyledBox>
+        <StyledBox>
+          <StyledTextField
+            required
+            label="Street"
+            size="small"
+            name="street"
+            value={form.address.street}
+            onChange={handleFormChange}
+          />
+          <StyledTextField
+            required
+            label="Postal code"
+            size="small"
+            name="postalCode"
+            value={form.address.postalCode}
+            onChange={handleFormChange}
+          />
+        </StyledBox>
+
         <Separator>
           <Button variant="outlined" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="contained" onClick={registerCompany}>
+          <Button variant="contained" onClick={() => createCowork()}>
             Send for approval
           </Button>
         </Separator>

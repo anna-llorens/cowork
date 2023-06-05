@@ -6,7 +6,7 @@ export interface AuthTokenPayload {
   userId: number;
 }
 
-export function decodeAuthHeader(authHeader: String): AuthTokenPayload {
+export function decodeAuthHeader(authHeader: string): AuthTokenPayload {
   const token = authHeader.replace("Bearer ", "");
 
   if (!token) {

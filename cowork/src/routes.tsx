@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import * as View from "./views";
 import { Routes } from "./utils/types";
-import AddCowrk from "./components/modals/add-cowork";
 
 export const router = createBrowserRouter([
   {
@@ -30,9 +29,5 @@ export const router = createBrowserRouter([
   {
     path: Routes.loading,
     element: <View.Loading />,
-  },
-  {
-    path: Routes.faq,
-    element: <AddCowrk />,
   },
 ]);

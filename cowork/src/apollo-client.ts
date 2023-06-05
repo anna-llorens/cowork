@@ -1,7 +1,7 @@
 import { setContext } from "@apollo/client/link/context";
 import { AUTH_TOKEN } from "./utils";
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-export const GRAPHQL_API = "http://localhost:4001";
+export const GRAPHQL_API = "http://localhost:4002";
 
 const httpLink = createHttpLink({
   uri: GRAPHQL_API,
