@@ -1,4 +1,4 @@
-### ℹ️ Prisma Guide
+# ℹ️ Prisma Guide
 
 Launch prisma studio:
 

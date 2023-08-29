@@ -11,12 +11,12 @@ model Cowork {
   id          Int      @id @default(autoincrement())  
   companyName String
   url         String
-  description String
-  address     String?
+  description String?
   createdAt   DateTime @default(now())  
-  postedBy    User?    @relation(name: "PostedBy", fields: [postedById], references: [id])  // 2
+  postedBy    User?    @relation(name: "PostedBy", fields: [postedById], references: [id]) 
   postedById  Int?
-  voters      User[]   @relation(name: "Votes")  // 1
+  voters      User[]   @relation(name: "Votes")
+  address     Address?
 }
 
 
@@ -27,4 +27,14 @@ model User {
   password  String
   coworks  Cowork[]  @relation(name: "PostedBy")
   votes    Cowork[] @relation(name: "Votes") 
+}
+model Address {
+  id          Int      @id @default(autoincrement())  
+  city        String
+  postalCode  String
+  street      String
+  country     String
+  user        Cowork @relation(fields: [coworkId], references: [id])
+  coworkId Int  @unique // relation scalar field (used in the `@relation` attribute above)
+
 }
